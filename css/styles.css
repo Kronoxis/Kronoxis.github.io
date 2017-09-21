@@ -78,13 +78,17 @@ h2.left {
 }
 
 h2.right {
-    text-align: right;   
+    text-align: right;
 }
 
 p {
     font-family: var(--main-font);
     font-weight: var(--main-fontw=-weight);
     font-size: 18px;
+}
+
+br {
+    margin-bottom: 15px;
 }
 
 a {
@@ -161,22 +165,11 @@ a:hover {
 }
 
 
-/* Gradients */
-
-.gradient span {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 99;
-    background: -webkit-linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--transparent-color), var(--background-color));
-    background: -o-linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--transparent-color), var(--background-color));
-    background: linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--transparent-color), var(--background-color));
-}
-
-
 /* Sections */
+
+.section .container {
+    padding: 8vh;
+}
 
 .sectionborder {
     border-style: solid;
@@ -185,7 +178,7 @@ a:hover {
 }
 
 .section h2 {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 100px;
 }
 
@@ -201,6 +194,7 @@ a:hover {
     border-radius: 20px;
     -webkit-transition-duration: 0.3s;
     transition-duration: : 0.3s;
+    margin: 5px;
 }
 
 .section button:hover {
@@ -238,46 +232,73 @@ a:hover {
 /* About Section */
 
 #about {
-    min-height: 700px;
-    position: relative;
-    padding: 10vh 20vw;
 }
 
 #about img {
     display: inline;
-    width: 50vh;
-    height: 50vh;
+    max-width: 65vw;
+    max-height: 65vw;
     position: relative;
-    top: 0px;
-    left: 5vh;
-}
-
-#about p {
-    padding: 0px 0px 15px 10px;
-}
-
-#about p.noBottomPadding {
-    padding-bottom: 0px;
+    margin: 3vw;
 }
 
 
 /* Portfolio Section */
 
 #portfolio {
-    height: 850px;
+}
+
+#portfolio .crop {
+    display: inline;
+    height: 12vw;
+    min-height: 150px;
+    overflow: hidden;
+    transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    margin: 5px;
+}
+
+#portfolio .crop:hover {
+    height: 16vw;
+    min-height: 200px;
+}
+
+#portfolio img {
+    display: inline;
+    height: 12vw;
+    min-height: 150px;
     position: relative;
-    padding: 10vh 20vw;
+    transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+
+#portfolio img:hover {
+    height: 16vw;    
+    min-height: 200px;
+}
+
+#portfolio ul {
+    list-style-position: inside;
+    list-style-type: none;
+    font-size: 18px;
+    margin: 0px;
 }
 
 
 /* Contact Section */
 
 #contact {
-    height: 500px;
-    position: relative;
-    padding: 10vh 20vw;
 }
 
+#contact img {
+    width: 100%;
+}
 
 /* Footer Section */
 
@@ -287,7 +308,7 @@ a:hover {
     border-style: solid;
     border-color: var(--accent2-color);
     border-width: 2px 0px 0px 0px;
-    padding: 15px 50px;
+    padding: 10px;
 }
 
 #footer h2 {
