@@ -52,6 +52,7 @@ body {
     color: var(--main-color);
     font-family: var(--main-font);
     font-size: 16px;
+    width: 100%;
 }
 
 h1 {
@@ -128,7 +129,6 @@ a:hover {
 .navbar {
     z-index: 100;
     position: fixed;
-    width: 100%;
     background-color: var(--background-color);
     border-style: solid;
     border-color: var(--accent2-color);
@@ -178,7 +178,7 @@ a:hover {
 
 /* Sections */
 
-.section div.border {
+.sectionborder {
     border-style: solid;
     border-color: var(--line-color);
     border-width: 0px 0px 1px 0px;
