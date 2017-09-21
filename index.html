@@ -4,10 +4,10 @@
 <head>
     <!-- Title -->
     <title>Kronoxis - Portfolio</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png">
-    
+
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,24 +17,47 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin" type="text/css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Expletus+Sans" type="text/css" rel="stylesheet" />
-    
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" type="text/css" rel="stylesheet" />
+
     <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <!-- Custom -->
     <link href="css/styles.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
     <!-- Navigation -->
-    <div class="navbar">
-        <h2>Kronoxis</h2>
-        <!-- Reverse order (float right) -->
-        <button type="button" onclick="scrollTo('Contact')">Contact</button>
-        <button type="button" onclick="scrollTo('Portfolio')">Portfolio</button>
-        <button type="button" onclick="scrollTo('About')">About</button>
+    <div class="navbar container-fluid">
+        <div class="container">
+            <div class="col-sm">
+                <a href="#header">
+                    <img src="images/logo.png" alt="Kronoxis Logo" />
+                </a>
+            </div>
+            <div class="col-sm">
+                <div class="row" align="center">
+                    <div class="col-sm">
+                        <a href="#header">
+                            <button type="button">Home</button>
+                        </a>
+                        <a href="#about">
+                            <button type="button">About</button>
+                        </a>
+                        <a href="#portfolio">
+                            <button type="button">Portfolio</button>
+                        </a>
+                        <a href="#contact">
+                            <button type="button">Contact</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <!-- Gradients -->
+    <!--
     <div class="gradient">
         <span></span>
     </div>
@@ -42,29 +65,62 @@
     <!-- Sections -->
     <div class="section">
         <!-- Header Section -->
-        <div id="header">
-            <h1>Kronoxis</h1>
-            <h2>Game Developer</h2>
+        <div id="header" class="container-fluid">
+            <div class="container" align="center">
+                <div class="row">
+                    <div class="col">
+                        <h1>Kronoxis</h1>
+                        <h2>Game Developer</h2>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- About Section -->
-        <div id="about">
+        <div id="about" class="border container-fluid">
             <h2>About me</h2>
-            <p>
-                About Section Content Placeholder
-            </p>
+
+            <div class="row">
+                <div class="col">
+                    <p>
+                        My name is Quinten Wuyts and I'm 19 year old Game Developer. Currently, I'm a senior <a href="http://www.digitalartsandentertainment.com/">Digital Arts and Entertainment</a> student in Howest, Kortrijk (Belgium).
+                    </p>
+                    <p>
+                        Ever since I had access to a computer, I've been a fond of all sorts of Games. Knowing how these games were created was an interest that came shortly after.
+                    </p>
+                    <p>
+                        My main interest in the Game Development Pipeline is Programming. I like to figure out mechanics for Games and tweak them until they feel just right.
+                    </p>
+                    <p>
+                        However, I don't mind helping out in the 3D pipeline where necessary. My education taught me how to create 3D assets and VFX Particles.
+                    </p>
+                    <p class="noBottomPadding">
+                        If you'd like to know more about me, feel free to get in touch with me!
+                    </p>
+
+                    <div class="row" align="center">
+                        <div class="col">
+                            <a href="#contact" align="center">
+                                <button type="button">Contact</button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <img src="images/me.jpg" alt="Quinten Wuyts" />
+                </div>
+            </div>
         </div>
 
         <!-- Portfolio Section -->
-        <div id="portfolio">
+        <div id="portfolio" class="border container-fluid">
             <h2>Recent work</h2>
-            <p>
-                Portfolio Section Content Placeholder
-            </p>
+            <img src="images/" alt="Solani" />
         </div>
 
         <!-- Contact Section -->
-        <div id="contact">
+        <div id="contact" class="container-fluid">
             <h2>Get in touch</h2>
             <p>
                 Contact Section Content Placeholder
@@ -72,21 +128,43 @@
         </div>
 
         <!-- Footer Section -->
-        <div id="footer">
-            <h2>© 2017 Kronoxis</h2>
+        <div id="footer" class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="left">© 2017 Kronoxis</h2>
+                    </div>
+                    <div class="col">
+                        <h2 class="right">Kronoxis - Portfolio</h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Javascripts -->
-    <!-- Scroll to Section -->
-    <script type="text/javascript">
-        function scrollTo(id) {
-            "use strict";
-            document.getElementById(id).style.color = "red";
-            location.href = "#"; // Work around bug in WebKit
-            var anchor = '#'.concat(id);
-            location.href = anchor;
-        }
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Smooth Scroll -->
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {});
+                }
+            });
+        });
     </script>
 </body>
 

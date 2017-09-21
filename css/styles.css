@@ -14,8 +14,12 @@ Text       : #FDB76E
 Background : #7589A5 
 */
 
-/* Variable Declarations */
-/* TO DO: Replace Variables with final value (Not supported in older browser) */
+
+/* 
+Variable Declarations
+TO DO: Replace Variables with final value (Not supported in older browser) 
+*/
+
 :root {
     /* Colors */
     --accent1-color: #F43D16;
@@ -24,19 +28,22 @@ Background : #7589A5
     --main-color: #FDB76E;
     --background-color: #1E1E20;
     --transparent-color: rgba(0, 0, 0, 0);
+    --link-color: #D9CB9E;
+    --link-hover-color: #C13F1C;
     /* Fonts */
     --title-font: 'Heebo', sans-serif;
     --title-font-weight: 500;
     --subtitle-font: 'Heebo', sans-serif;
     --subtitle-font-weight: 400;
-    --main-font: 'Cabin', sans-serif;
+    --main-font: 'Hind', sans-serif;
+    --main-font-weight: 300;
 }
 
 * {
     margin: 0;
     padding: 0;
-    /*border: 1px solid white;*/
     /* Visualize Box Model */
+    /*border: 1px dashed white;*/
     box-sizing: border-box;
 }
 
@@ -65,9 +72,36 @@ h2 {
     text-shadow: 2px 1px var(--background-color);
 }
 
+h2.left {
+    text-align: left;
+}
+
+h2.right {
+    text-align: right;   
+}
+
+p {
+    font-family: var(--main-font);
+    font-weight: var(--main-fontw=-weight);
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-style: italic;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--link-hover-color);
+}
+
 
 /* Navigation */
 
+
+/*
 .navbar {
     padding: 2vh 10vh;
     width: 100%;
@@ -89,17 +123,30 @@ h2 {
     display: inline;
     color: var(--accent1-color);
 }
+*/
+
+.navbar {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: var(--background-color);
+    border-style: solid;
+    border-color: var(--accent2-color);
+    border-width: 0px 0px 2px 0px;
+}
+
+.navbar img {
+    max-height: 60px;
+    position: relative;
+}
 
 .navbar button {
     display: inline;
-    min-width: 75px;
-    max-width: 20vw;
-    width: 12vw;
-    height: 5vh;
-    float: right;
+    min-width: 100px;
+    max-height: 50px;
     background-color: var(--transparent-color);
     padding: 5px 10px;
-    font-size: 3vh;
+    font-size: 20px;
     color: var(--main-color);
     border: none;
     border-radius: 20px;
@@ -123,76 +170,130 @@ h2 {
     bottom: 0;
     right: 0;
     z-index: 99;
-    background: -webkit-linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--background-color));
-    background: -o-linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--background-color));
-    background: linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--background-color));
+    background: -webkit-linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--transparent-color), var(--background-color));
+    background: -o-linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--transparent-color), var(--background-color));
+    background: linear-gradient(var(--background-color), var(--transparent-color), var(--transparent-color), var(--transparent-color), var(--background-color));
 }
 
 
 /* Sections */
 
-.section div {
-    position: relative;
-    padding: 50px 100px;
+.section div.border {
     border-style: solid;
     border-color: var(--line-color);
     border-width: 0px 0px 1px 0px;
 }
 
+.section h2 {
+    font-size: 40px;
+    line-height: 100px;
+}
+
+.section button {
+    display: inline-block;
+    min-width: 200px;
+    max-height: 50px;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+    font-size: 20px;
+    color: var(--background-color);
+    border: none;
+    border-radius: 20px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: : 0.3s;
+}
+
+.section button:hover {
+    background-color: var(--main-color);
+    color: var(--background-color);
+    border-radius: 10px;
+}
+
 
 /* Header Section */
 
-.section #header {
-    height: 100vh;
+#header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     text-align: center;
     background-position: top center;
     background-attachment: fixed;
     background-image: url("../images/Header.jpg");
     background-size: cover;
-    z-index: 1;
 }
 
-.section #header h1 {
-    position: relative;
-    top: 40vh;
+#header h1 {
     font-size: 10vh;
     color: var(--accent1-color);
 }
 
-.section #header h2 {
-    position: relative;
-    top: 480px;
-    top: 40vh;
+#header h2 {
     font-size: 4vh;
     text-transform: uppercase;
     color: var(--accent2-color);
 }
 
-.section #about {
-    height: 500px;
+
+/* About Section */
+
+#about {
+    min-height: 700px;
+    position: relative;
+    padding: 10vh 20vw;
 }
 
-.section #portfolio {
-    height: 500px;
+#about img {
+    display: inline;
+    width: 50vh;
+    height: 50vh;
+    position: relative;
+    top: 0px;
+    left: 5vh;
 }
 
-.section #contact {
-    height: 500px;
+#about p {
+    padding: 0px 0px 15px 10px;
 }
 
-.section #footer {
-    height: 75px;
+#about p.noBottomPadding {
+    padding-bottom: 0px;
+}
+
+
+/* Portfolio Section */
+
+#portfolio {
+    height: 850px;
+    position: relative;
+    padding: 10vh 20vw;
+}
+
+
+/* Contact Section */
+
+#contact {
+    height: 500px;
+    position: relative;
+    padding: 10vh 20vw;
+}
+
+
+/* Footer Section */
+
+#footer {
+    height: 60px;
     z-index: 100;
     border-style: solid;
     border-color: var(--accent2-color);
     border-width: 2px 0px 0px 0px;
-    padding: 23px 50px; 
+    padding: 15px 50px;
 }
 
-.section #footer h2 {
+#footer h2 {
     position: relative;
-    width: 500px;
     height: 30px;
     font-size: 20px;
+    line-height: 30px;
     color: var(--accent1-color);
 }
