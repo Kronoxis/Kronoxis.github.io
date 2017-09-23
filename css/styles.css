@@ -37,6 +37,14 @@ TO DO: Replace Variables with final value (Not supported in older browser)
     --subtitle-font-weight: 400;
     --main-font: 'Hind', sans-serif;
     --main-font-weight: 300;
+    /* Carousel */
+    --duration: 500ms;
+    --tileWidth: 16vw;
+    --tileHeight: 9vw;
+    --tileHalfHeight: 4.5vw;
+    --growFactor: 1.2;
+    --moveLeft: -1.6vw;
+    --moveRight: 3.2vw;
 }
 
 * {
@@ -231,8 +239,7 @@ a:hover {
 
 /* About Section */
 
-#about {
-}
+#about {}
 
 #about img {
     display: inline;
@@ -245,42 +252,63 @@ a:hover {
 
 /* Portfolio Section */
 
-#portfolio {
+#portfolio {}
+
+#portfolio .carousel {
+    overflow-x: scroll;
+    width: 100%;
 }
 
-#portfolio .crop {
-    display: inline;
-    height: 12vw;
-    min-height: 150px;
-    overflow: hidden;
-    transition: 0.5s;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -webkit-transition: 0.5s;
-    margin: 5px;
+#portfolio .carousel_row {
+    transition: var(--duration) transform;
+    white-space: nowrap;
+    margin: var(--tileHalfHeight) 0;
+    padding-bottom: 10px;
 }
 
-#portfolio .crop:hover {
-    height: 16vw;
-    min-height: 200px;
-}
-
-#portfolio img {
-    display: inline;
-    height: 12vw;
-    min-height: 150px;
+#portfolio .tile {
+    display: inline-block;
     position: relative;
-    transition: 0.5s;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -webkit-transition: 0.5s;
+    width: var(--tileWidth);
+    height: var(--tileHeight);
+    min-height: 150px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: var(--duration) all;
+    transform-origin: center left;
 }
 
-#portfolio img:hover {
-    height: 16vw;    
-    min-height: 200px;
+#portfolio .tile_img {
+    width: var(--tileWidth);
+    height: var(--tileHeight);
+    object-fit: cover;
+}
+
+
+/* Move hovered row to the left */
+
+#portfolio .carousel_row:hover {
+    transform: translate3d(var(--moveLeft), 0, 0);
+}
+
+
+/* Fade all tiles */
+
+#portfolio .carousel_row:hover .tile {
+}
+
+
+/* Scale hovered tile and counter fading */
+
+#portfolio .tile:hover {
+    transform: scale(var(--growFactor));
+}
+
+
+/* Move tiles right of hovered tile to the right */
+
+#portfolio .tile:hover ~ .tile {
+    transform: translate3d(var(--moveRight), 0, 0);
 }
 
 #portfolio ul {
@@ -299,10 +327,11 @@ a:hover {
 
 #contact img {
     width: 10vw;
-    min-width: 50px;
-    max-width: 200px;
+    min-width: 35px;
+    max-width: 75px;
     margin: 5px 5px;
 }
+
 
 /* Footer Section */
 
