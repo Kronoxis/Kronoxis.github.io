@@ -325,9 +325,12 @@
 
             var windowHeight = $(window).height();
             var pxPerVh = windowHeight / 100;
-
-            var shiftAmt = amount;
-            if (unit == "vh") shiftAmt *= pxPerVh; // amount passed is in VH, convert to PX
+            
+            var shiftAmt = parseFloat($(tiles[0]).css("width"));
+            if (amount < 0) shiftAmt *= -1;
+            console.log("shiftAmt: " + shiftAmt);
+            //var shiftAmt = amount;
+            //if (unit == "vh") shiftAmt *= pxPerVh; // amount passed is in VH, convert to PX
 
             // If First Tile will go past left border, adjust amount
             if (shiftAmt > 0) {
@@ -369,6 +372,15 @@
 
     <!-- Enable Carousel Item Description -->
     <script>
+        // Disable image link on mobile devices 
+        // Force hover event on tap, force button click to go to page
+        if (!!('ontouchstart' in window)) {
+           var imgs = document.getElementsByClassName("tile_img");
+            for(var i = 0; i < imgs.length; ++i) {
+                $(imgs[i]).parentElement.attr('onclick','');
+            }
+        }
+        
         function enableDesc(e, classPos = 1) {
             // Disable all Descriptions, except for the one with the same class
             var descs = document.getElementsByClassName("carousel_desc");
