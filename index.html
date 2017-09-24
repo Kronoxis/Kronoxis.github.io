@@ -380,12 +380,18 @@
             }
         }
 
+        var hoveredIdx = 0;
+        var autoIdx = 0;
+        var autoNext;
+        autoCarousel();
+        
         function enableDesc(e, classPos = 1) {
             // Disable all Descriptions, except for the one with the same class
             var descs = document.getElementsByClassName("carousel_desc");
             for (var i = 0; i < descs.length; ++i) {
                 var isEDesc = descs[i].classList.contains(e.classList[classPos]);
                 $(descs[i]).css("display", isEDesc ? "block" : "none");
+                if (isEDesc) hoveredIdx = i;
             }
         }
 
@@ -396,14 +402,21 @@
             }
         }
 
-        var disableTimer;
+        function autoCarousel() {
+            var tiles = document.getElementsByClassName("tile");
+            ++autoIdx;
+            autoIdx %= tiles.length;
+            $(tiles[autoIdx]).trigger('mouseover');
+            autoNext = setTimeout(autoCarousel, 5000);
+        }
+
         $(".carousel").on({
             'mouseleave': function () {
-                isAutoEnabled = true;
-                disableTimer = setTimeout(disableDescs, 2000);
+                autoNext = setTimeout(autoCarousel, 5000);
+                autoIdx = hoveredIdx;
             },
             'mouseenter': function () {
-                clearTimeout(disableTimer);
+                clearTimeout(autoNext);
             }
         });
     </script>

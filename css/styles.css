@@ -232,6 +232,10 @@ a:hover {
 
 /* Portfolio Section */
 
+#portfolio {
+    height: 90vh;
+}
+
 #portfolio .carousel {
     overflow-x: hidden;
     width: 100%;
