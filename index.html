@@ -168,8 +168,8 @@
                         </div>
 
                         <!-- Scroll Buttons -->
-                        <div class="carousel_nav carousel_left" onclick="moveCarousel(this, 64);">&#10094;</div>
-                        <div class="carousel_nav carousel_right" onclick="moveCarousel(this, -64);">&#10095;</div>
+                        <div class="carousel_nav carousel_left" onclick="moveCarousel(this)">&#10094;</div>
+                        <div class="carousel_nav carousel_right" onclick="moveCarousel(this)">&#10095;</div>
                     </div>
 
                     <div class="col-6">
@@ -248,7 +248,7 @@
         <div id="contact" class="container-fluid" align="center">
             <!-- Title -->
             <h2>Get in touch</h2>
-            
+
             <div class="col">
                 <!-- Images & Links -->
                 <a href="mailto:contact@kronoxis.com" target="_blank">
@@ -313,7 +313,7 @@
 
     <!-- Move Carousel -->
     <script>
-        function moveCarousel(e, amount, unit = "vh") {
+        function moveCarousel(e) {
             var row = getRow(e);
             if (row == null) {
                 console.warn("moveCarousel() > RowElement was null");
@@ -323,12 +323,11 @@
             var tileCount = row.childElementCount;
             var tiles = row.children;
 
-            var windowHeight = $(window).height();
-            var pxPerVh = windowHeight / 100;
-            
+            //var windowHeight = $(window).height();
+            //var pxPerVh = windowHeight / 100;
+
             var shiftAmt = parseFloat($(tiles[0]).css("width"));
-            if (amount < 0) shiftAmt *= -1;
-            console.log("shiftAmt: " + shiftAmt);
+            if (e.classList.contains("carousel_right")) shiftAmt *= -1;
             //var shiftAmt = amount;
             //if (unit == "vh") shiftAmt *= pxPerVh; // amount passed is in VH, convert to PX
 
@@ -374,13 +373,13 @@
     <script>
         // Disable image link on mobile devices 
         // Force hover event on tap, force button click to go to page
-        if (!!('ontouchstart' in window)) {
-           var imgs = document.getElementsByClassName("tile_img");
-            for(var i = 0; i < imgs.length; ++i) {
-                $(imgs[i]).parentElement.attr('onclick','');
+        if ('ontouchstart' in window) {
+            var imgs = document.getElementsByClassName("tile_img");
+            for (var i = 0; i < imgs.length; ++i) {
+                $(imgs[i].parentElement).removeAttr('href');
             }
         }
-        
+
         function enableDesc(e, classPos = 1) {
             // Disable all Descriptions, except for the one with the same class
             var descs = document.getElementsByClassName("carousel_desc");
