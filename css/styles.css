@@ -37,11 +37,12 @@ TO DO: Replace Variables with final value (Not supported in older browser)
     --subtitle-font-weight: 400;
     --main-font: 'Hind', sans-serif;
     --main-font-weight: 300;
+    --em-font-weight: 500;
     /* Carousel */
     --duration: 500ms;
-    --tileWidth: 16vw;
-    --tileHeight: 9vw;
-    --tileHalfHeight: 4.5vw;
+    --tileWidth: 32vh;
+    --tileHeight: 18vh;
+    --tileMargin: 2.25vw;
     --growFactor: 1.2;
     --moveLeft: -1.6vw;
     --moveRight: 3.2vw;
@@ -60,7 +61,6 @@ body {
     color: var(--main-color);
     font-family: var(--main-font);
     font-size: 16px;
-    width: 100%;
 }
 
 h1 {
@@ -91,7 +91,7 @@ h2.right {
 
 p {
     font-family: var(--main-font);
-    font-weight: var(--main-fontw=-weight);
+    font-weight: var(--main-font-weight);
     font-size: 18px;
 }
 
@@ -113,34 +113,10 @@ a:hover {
 
 /* Navigation */
 
-
-/*
 .navbar {
-    padding: 2vh 10vh;
+    z-index: 100;
+    position: fixed;
     width: 100%;
-    height: 15vh;
-    max-height: 9%;
-    z-index: 100;
-    position: fixed;
-    background-color: var(--background-color);
-    border-style: solid;
-    border-color: var(--accent2-color);
-    border-width: 0px 0px 2px 0px;
-    overflow: hidden;
-}
-
-.navbar h2 {
-    position: relative;
-    width: 50vw;
-    height: 4vh;
-    display: inline;
-    color: var(--accent1-color);
-}
-*/
-
-.navbar {
-    z-index: 100;
-    position: fixed;
     background-color: var(--background-color);
     border-style: solid;
     border-color: var(--accent2-color);
@@ -176,7 +152,11 @@ a:hover {
 /* Sections */
 
 .section .container {
-    padding: 8vh;
+    padding: 1vh 8vh;
+}
+
+.section .container-fluid {
+    padding: 1vh 1vh;
 }
 
 .sectionborder {
@@ -200,8 +180,10 @@ a:hover {
     color: var(--background-color);
     border: none;
     border-radius: 20px;
-    -webkit-transition-duration: 0.3s;
     transition-duration: : 0.3s;
+    -o-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
     margin: 5px;
 }
 
@@ -239,8 +221,6 @@ a:hover {
 
 /* About Section */
 
-#about {}
-
 #about img {
     display: inline;
     max-width: 65vw;
@@ -252,18 +232,18 @@ a:hover {
 
 /* Portfolio Section */
 
-#portfolio {}
-
 #portfolio .carousel {
-    overflow-x: scroll;
+    overflow-x: hidden;
     width: 100%;
 }
 
 #portfolio .carousel_row {
+    margin: var(--tileMargin) 0;
+}
+
+#portfolio .carousel_row_inner {
     transition: var(--duration) transform;
     white-space: nowrap;
-    margin: var(--tileHalfHeight) 0;
-    padding-bottom: 10px;
 }
 
 #portfolio .tile {
@@ -271,6 +251,7 @@ a:hover {
     position: relative;
     width: var(--tileWidth);
     height: var(--tileHeight);
+    min-width: 266px;
     min-height: 150px;
     margin-right: 5px;
     cursor: pointer;
@@ -281,24 +262,20 @@ a:hover {
 #portfolio .tile_img {
     width: var(--tileWidth);
     height: var(--tileHeight);
+    min-width: 266px;
+    min-height: 150px;
     object-fit: cover;
 }
 
 
 /* Move hovered row to the left */
 
-#portfolio .carousel_row:hover {
+#portfolio .carousel_row_inner:hover {
     transform: translate3d(var(--moveLeft), 0, 0);
 }
 
 
-/* Fade all tiles */
-
-#portfolio .carousel_row:hover .tile {
-}
-
-
-/* Scale hovered tile and counter fading */
+/* Scale hovered tile */
 
 #portfolio .tile:hover {
     transform: scale(var(--growFactor));
@@ -309,6 +286,39 @@ a:hover {
 
 #portfolio .tile:hover ~ .tile {
     transform: translate3d(var(--moveRight), 0, 0);
+}
+
+#portfolio .carousel_nav {
+    cursor: pointer;
+    display: inline-block;
+    z-index: 10;
+    font-size: 40px;
+    color: rgb(200, 200, 200);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 8px;
+    position: relative;
+    top: -15vh;
+}
+
+#portfolio .carousel_left {
+    float: left;
+    margin-left: 1vw;
+}
+
+#portfolio .carousel_right {
+    float: right;
+    margin-right: 1vw;
+}
+
+#portfolio .carousel_desc {
+    display: none;
+    margin-bottom: 50px;
+}
+
+#portfolio em {
+    color: var(--accent1-color);
+    font-style: normal;
+    font-weight: var(--em-font-weight);
 }
 
 #portfolio ul {
@@ -325,11 +335,25 @@ a:hover {
     margin-bottom: 50px;
 }
 
+#contact .col {
+    min-height: 35px;
+    height: 12vw;
+}
+
 #contact img {
     width: 10vw;
     min-width: 35px;
     max-width: 75px;
     margin: 5px 5px;
+    transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+}
+
+#contact img:hover {
+    width: 12vw;
+    max-width: 100px;
 }
 
 

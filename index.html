@@ -17,7 +17,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
@@ -28,7 +28,7 @@
 
 <body>
     <!-- Navigation -->
-    <div class="navbar container-fluid">
+    <div class="navbar">
         <div class="container">
             <div class="col-sm">
                 <a href="#header">
@@ -107,131 +107,140 @@
 
         <!-- Portfolio Section -->
         <div id="portfolio" class="sectionborder">
-            <!-- Title -->
-            <h2>Recent work</h2>
+            <div class="container-fluid">
+                <!-- Title -->
+                <h2>Recent work</h2>
+                <!-- Pictures -->
+                <div class="carousel" align="center">
+                    <div class="carousel_row">
+                        <!-- Images -->
+                        <div class="carousel_row_inner">
+                            <div class="tile Solani" onmouseover="enableDesc(this)">
+                                <a href="solani.html">
+                                    <img class="tile_img" src="images/Solani/Header.jpg" alt="Solani" />
+                                </a>
+                            </div>
+                            <div class="tile MarbleRace" onmouseover="enableDesc(this)">
+                                <a href="marblerace.html">
+                                    <img class="tile_img" src="images/MarbleRace/Header.jpg" alt="Marble Race" />
+                                </a>
+                            </div>
+                            <div class="tile SurvivalAI" onmouseover="enableDesc(this)">
+                                <a href="survivalai.html">
+                                    <img class="tile_img" src="images/SurvivalAI/Header.jpg" alt="Survival AI" />
+                                </a>
+                            </div>
+                            <div class="tile NuclearLab" onmouseover="enableDesc(this)">
+                                <a href="nuclearlab.html">
+                                    <img class="tile_img" src="images/NuclearLab/Header.jpg" alt="Unreal Tournament Nuclear Lab" />
+                                </a>
+                            </div>
+                            <div class="tile CaptainToad" onmouseover="enableDesc(this)">
+                                <a href="captaintoad.html">
+                                    <img class="tile_img" src="images/CaptainToad/Header.jpg" alt="Captain Toad" />
+                                </a>
+                            </div>
+                            <div class="tile BAR" onmouseover="enableDesc(this)">
+                                <a href="bar.html">
+                                    <img class="tile_img" src="images/BAR/Header.jpg" alt="M1918A2 Browning AR" />
+                                </a>
+                            </div>
+                            <div class="tile Axe" onmouseover="enableDesc(this)">
+                                <a href="axe.html">
+                                    <img class="tile_img" src="images/Axe/Header.jpg" alt="MTech USA Adventurer's Axe" />
+                                </a>
+                            </div>
+                            <div class="tile SpiderMech" onmouseover="enableDesc(this)">
+                                <a href="spidermech.html">
+                                    <img class="tile_img" src="images/SpiderMech/Header.jpg" alt="Spider Mech Rig" />
+                                </a>
+                            </div>
+                            <div class="tile 250GTO" onmouseover="enableDesc(this)">
+                                <a href="250gto.html">
+                                    <img class="tile_img" src="images/250GTO/Header.jpg" alt="High Poly Ferrari 250 GTO" />
+                                </a>
+                            </div>
+                            <div class="tile RazerOuroboros" onmouseover="enableDesc(this)">
+                                <a href="razerouroboros.html">
+                                    <img class="tile_img" src="images/RazerOuroboros/Header.jpg" alt="High Poly Razer Ouroboros PC Gaming Mouse" />
+                                </a>
+                            </div>
+                        </div>
 
-            <!-- Pictures -->
-            <div class="carousel" align="center">
-                <div class="carousel_row">
-                    <div class="tile">
-                        <img class="tile_img" src="images/Solani/Header.jpg" alt="Solani" />
+                        <!-- Scroll Buttons -->
+                        <div class="carousel_nav carousel_left" onclick="moveCarousel(this, 64);">&#10094;</div>
+                        <div class="carousel_nav carousel_right" onclick="moveCarousel(this, -64);">&#10095;</div>
                     </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/MarbleRace/Header.jpg" alt="Marble Race" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/SurvivalAI/Header.jpg" alt="Survival AI" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/NuclearLab/Header.jpg" alt="Unreal Tournament Nuclear Lab" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/CaptainToad/Header.jpg" alt="Captain Toad" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/BAR/Header.jpg" alt="M1918A2 Browning AR" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/Axe/Header.jpg" alt="MTech USA Adventurer's Axe" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/SpiderMech/Header.jpg" alt="Spider Mech Rig" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/250GTO/Header.jpg" alt="High Poly Ferrari 250 GTO" />
-                    </div>
-                    <div class="tile">
-                        <img class="tile_img" src="images/RazerOuroboros/Header.jpg" alt="High Poly Razer Ouroboros PC Gaming Mouse" />
+
+                    <div class="col-6">
+                        <div class="carousel_desc Solani">
+                            <p>
+                                <em>Solani</em> is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower you to use and control light.
+                            </p>
+                            <ul>
+                                <li>Team: 4 Programmers, 1 Artist</li>
+                                <li>Software: Unity, Visual Studio C#</li>
+                                <li>Time: 3 months</li>
+                            </ul>
+                            <a href="solani.html">
+                                <button type="button">Read more</button>
+                            </a>
+                        </div>
+                        <div class="carousel_desc MarbleRace">
+                            <p>
+                                <em>Marble Race</em> is a Giveaway system designed for Twitch Streamers. Viewers can join using a command in the Twitch Chat. When joined, they will be represented by a Marble and join the race. The first Marble to reach the bottom wins the Giveaway.
+                            </p>
+                            <ul>
+                                <li>Team: 2 Programmers</li>
+                                <li>Software: Unity, Visual Studio C#</li>
+                                <li>Time: 2 weeks</li>
+                            </ul>
+                            <a href="marblerace.html">
+                                <button type="button">Read more</button>
+                            </a>
+                        </div>
+                        <div class="carousel_desc SurvivalAI">
+                            <p>
+                                <em>SurvivalAI</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc NuclearLab">
+                            <p>
+                                <em>NuclearLab</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc CaptainToad">
+                            <p>
+                                <em>CaptainToad</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc BAR">
+                            <p>
+                                <em>BAR</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc Axe">
+                            <p>
+                                <em>Axe</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc SpiderMech">
+                            <p>
+                                <em>SpiderMech</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc 250GTO">
+                            <p>
+                                <em>250GTO</em> Description
+                            </p>
+                        </div>
+                        <div class="carousel_desc RazerOuroboros">
+                            <p>
+                                <em>RazerOuroboros</em> Description
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Solani
-                <div class="row sectionborder">
-                    <div class="col-3" align="center">
-                        <img src="images/Solani/Header.jpg" alt="Solani" />
-                    </div>
-                    <div class="col">
-                        <p>
-                            Solani is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower your knowlegde on how to use and control light.
-                        </p>
-                        <ul>
-                            <li>Team: 4 Programmers, 1 Artist</li>
-                            <li>Software: Unity, Visual Studio C#</li>
-                            <li>Time: 3 months</li>
-                        </ul>
-                        <a href="solani.html">
-                            <button type="button">Read more</button>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- MarbleRace
-                <div class="row sectionborder">
-                    <div class="col">
-                        <p>
-                            Marble Race is a Giveaway system designed for Twitch Streamers. Viewers can join using a command in the Twitch Chat. When joined, they will be represented by a Marble and join the race. The first Marble to reach the bottom wins the Giveaway.
-                        </p>
-                        <ul>
-                            <li>Team: 2 Programmers</li>
-                            <li>Software: Unity, Visual Studio C#</li>
-                            <li>Time: 2 weeks</li>
-                        </ul>
-                        <a href="marblerace.html">
-                            <button type="button">Read more</button>
-                        </a>
-                    </div>
-                    <div class="col-3" align="center">
-                        <img src="images/MarbleRace/Header.jpg" alt="MarbleRace" />
-                    </div>
-                </div>
-
-                <!-- Hitman GO -->
-
-                <!-- Survival AI -->
-
-                <!-- 
-
-                <!-- TEMPLATE IMG LEFT
-                <div class="row sectionborder">
-                    <div class="col-3">
-                        <img src="IMAGE" alt="IMAGEALT" />
-                    </div>
-                    <div class="col">
-                        <p>
-                            TEXT
-                        </p>
-                        <ul>
-                            <li>Team: </li>
-                            <li>Software: </li>
-                            <li>Time: </li>
-                        </ul>
-                        <a href="solani.html">
-                            <button type="button">Read more</button>
-                        </a>
-                    </div>
-                </div>
-                -->
-
-                <!-- TEMPLATE IMG RIGHT
-                <div class="row">
-                    <div class="col">
-                        <p>
-                            TEXT
-                        </p>
-                        <ul>
-                            <li>Team: </li>
-                            <li>Software: </li>
-                            <li>Time: </li>
-                        </ul>
-                        <a href="solani.html">
-                            <button type="button">Read more</button>
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <img src="IMAGE" alt="IMAGEALT" />
-                    </div>
-                </div>
-                -->
             </div>
         </div>
 
@@ -239,20 +248,22 @@
         <div id="contact" class="container-fluid" align="center">
             <!-- Title -->
             <h2>Get in touch</h2>
-
-            <!-- Images & Links -->
-            <a href="https://www.twitter.com/Dev_Kronoxis" target="_blank">
-                <img src="images/twitter.png" alt="Twitter" />
-            </a>
-            <a href="https://github.com/Kronoxis" target="_blank">
-                <img src="images/github.png" alt="GitHub" />
-            </a>
-            <a href="https://www.linkedin.com/in/quintenwuyts/" target="_blank">
-                <img src="images/linkedin.png" alt="LinkedIn" />
-            </a>
-            <a href="mailto:contact@kronoxis.com" target="_blank">
-                <img src="images/mail.png" alt="Mail" />
-            </a>
+            
+            <div class="col">
+                <!-- Images & Links -->
+                <a href="mailto:contact@kronoxis.com" target="_blank">
+                    <img src="images/mail.png" alt="Mail" />
+                </a>
+                <a href="https://github.com/Kronoxis" target="_blank">
+                    <img src="images/github.png" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/quintenwuyts/" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn" />
+                </a>
+                <a href="https://www.twitter.com/Dev_Kronoxis" target="_blank">
+                    <img src="images/twitter.png" alt="Twitter" />
+                </a>
+            </div>
         </div>
     </div>
 
@@ -273,6 +284,7 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Smooth Scroll -->
     <script>
         $(document).ready(function () {
@@ -286,12 +298,102 @@
                     // Store hash
                     var hash = this.hash;
 
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementsByClassName("navbar")[0].getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
                     // Using jQuery's animate() method to add smooth page scroll
                     $('html, body').animate({
-                        scrollTop: $(hash).offset().top
+                        scrollTop: scrollHeight
                     }, 800, function () {});
                 }
             });
+        });
+    </script>
+
+    <!-- Move Carousel -->
+    <script>
+        function moveCarousel(e, amount, unit = "vh") {
+            var row = getRow(e);
+            if (row == null) {
+                console.warn("moveCarousel() > RowElement was null");
+                return;
+            }
+
+            var tileCount = row.childElementCount;
+            var tiles = row.children;
+
+            var windowHeight = $(window).height();
+            var pxPerVh = windowHeight / 100;
+
+            var shiftAmt = amount;
+            if (unit == "vh") shiftAmt *= pxPerVh; // amount passed is in VH, convert to PX
+
+            // If First Tile will go past left border, adjust amount
+            if (shiftAmt > 0) {
+                var bodyRect = document.body.getBoundingClientRect();
+                var elemRect = tiles[0].getBoundingClientRect();
+                var offset = bodyRect.left - elemRect.left;
+                if (offset < shiftAmt) {
+                    shiftAmt = offset;
+                }
+            }
+            // If Last Tile will go past right border, adjust amount
+            else if (shiftAmt < 0) {
+                var bodyRect = document.body.getBoundingClientRect();
+                var elemRect = tiles[tileCount - 1].getBoundingClientRect();
+                var offset = bodyRect.right - elemRect.right;
+                if (offset > shiftAmt) {
+                    shiftAmt = offset;
+                }
+            }
+
+            // Move Tiles
+            var prevLeft = $(tiles[0]).css("left");
+            var prevAmt = parseFloat(prevLeft);
+            var newAmt = prevAmt + shiftAmt;
+            var newLeft = newAmt.toString() + "px";
+
+            for (var i = 0; i < tileCount; ++i) {
+                var tile = row.children[i];
+                $(tile).css("left", newLeft);
+            }
+        }
+
+        function getRow(e) {
+            var parent = $(e)[0].parentElement;
+            var child = parent.firstElementChild;
+            return child;
+        }
+    </script>
+
+    <!-- Enable Carousel Item Description -->
+    <script>
+        function enableDesc(e, classPos = 1) {
+            // Disable all Descriptions, except for the one with the same class
+            var descs = document.getElementsByClassName("carousel_desc");
+            for (var i = 0; i < descs.length; ++i) {
+                var isEDesc = descs[i].classList.contains(e.classList[classPos]);
+                $(descs[i]).css("display", isEDesc ? "block" : "none");
+            }
+        }
+
+        function disableDescs() {
+            var descs = document.getElementsByClassName("carousel_desc");
+            for (var i = 0; i < descs.length; ++i) {
+                $(descs[i]).css("display", "none");
+            }
+        }
+
+        var disableTimer;
+        $(".carousel").on({
+            'mouseleave': function () {
+                isAutoEnabled = true;
+                disableTimer = setTimeout(disableDescs, 2000);
+            },
+            'mouseenter': function () {
+                clearTimeout(disableTimer);
+            }
         });
     </script>
 </body>
