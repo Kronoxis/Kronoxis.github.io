@@ -1,0 +1,375 @@
+/*
+Color Scheme: Sea Wolf (Adobe Color CC)
+Highlight 1: #DC3522
+Text       : #D9CB9E
+Background1: #374140
+Background2: #2A2C2B
+Background3: #1E1E20
+
+Color Scheme 2: 15852817631eebf7696d5o (Adobe Color CC)
+Highlight 1: #F43D16
+Highlight 2: #C13F1C
+Highlight 3: #580A06 
+Text       : #FDB76E 
+Background : #7589A5 
+*/
+
+// Functions
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@function max($a, $b) {
+    $aIno: #{$a};
+    $bIno: #{$b};
+    $res: calc($aIno - $bIno);
+    $bool: unquote("#{$res} > 0");
+    @return if($bool, $a, $b);
+}
+
+// Variable Declarations
+// Colors
+$accent1-color: #F43D16;
+$accent2-color: #C13F1C;
+$line-color: rgba(200, 200, 200, 0.5);
+$main-color: #FDB76E;
+$background-color: #1E1E20;
+$transparent-color: rgba(0, 0, 0, 0);
+$link-color: #D9CB9E;
+$link-hover-color: #C13F1C;
+// Fonts
+$title-font: 'Heebo',
+sans-serif 500;
+$subtitle-font: 'Heebo',
+sans-serif 400;
+$main-font: 'Hind',
+sans-serif 300;
+$em-font-weight: 500;
+// Carousel
+$duration: 500ms;
+$tileWidth: 32vh;
+$tileHeight: $tileWidth / (16 / 9);
+$tileMargin: $tileHeight / 4;
+$tileMinWidth: 177px;
+$tileMinHeight: $tileMinWidth / (16 / 9);
+$growFactor: 1.2;
+$moveLeft: -(max($tileWidth, $tileMinWidth) * ($growFactor - 1) / 2);
+$moveRight: max($tileWidth, $tileMinWidth) * ($growFactor - 1);
+
+* {
+    margin: 0;
+    padding: 0;
+    /* Visualize Box Model */
+    /*border: 1px dashed white;*/
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $background-color;
+    color: $main-color;
+    font: $main-font;
+    font-size: 16px;
+}
+
+h1 {
+    font: $title-font;
+    color: $accent1-color;
+    font-size: 10vh;
+    text-shadow: 2px 1px $background-color;
+}
+
+h2 {
+    font: $subtitle-font;
+    color: $accent2-color;
+    font-size: 3vh;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 2px 1px $background-color;
+}
+
+h2.left {
+    text-align: left;
+}
+
+h2.right {
+    text-align: right;
+}
+
+p {
+    font: $main-font;
+    font-size: 18px;
+}
+
+br {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+    font-style: italic;
+}
+
+a:hover {
+    text-decoration: none;
+    color: $link-hover-color;
+}
+
+button {
+    font-style: normal;
+}
+
+
+/* Navigation */
+
+.navbar {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: $background-color;
+    border-style: solid;
+    border-color: $accent2-color;
+    border-width: 0px 0px 2px 0px;
+}
+
+.navbar img {
+    max-height: 60px;
+    position: relative;
+}
+
+.navbar button {
+    display: inline;
+    min-width: 100px;
+    max-height: 50px;
+    background-color: $transparent-color;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: $main-color;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    @include transition(0.3s);
+}
+
+.navbar button:hover {
+    background-color: $main-color;
+    color: $background-color;
+    border-radius: 10px;
+}
+
+
+/* Sections */
+
+.section .container {
+    padding: 1vh 8vh;
+}
+
+.section .container-fluid {
+    padding: 1vh 1vh;
+}
+
+.sectionborder {
+    border-style: solid;
+    border-color: $line-color;
+    border-width: 0px 0px 1px 0px;
+}
+
+.section h2 {
+    font-size: 30px;
+    line-height: 50px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.section button {
+    display: inline-block;
+    min-width: 200px;
+    max-height: 50px;
+    background-color: $main-color;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: $background-color;
+    border: none;
+    border-radius: 20px;
+    @include transition(0.3s);
+    margin: 1vh 0vh 3vh 0vh;
+}
+
+.section button:hover {
+    background-color: $main-color;
+    color: $background-color;
+    border-radius: 10px;
+}
+
+
+/* Header Section */
+
+#header {
+    min-height: 100vh;
+    background-position: top center;
+    background-attachment: fixed;
+    background-image: url("../images/Header.jpg");
+    background-size: cover;
+}
+
+#header .container {
+    position: relative;
+}
+
+#header h1 {
+    font-size: 11vh;
+    line-height: 11vh;
+    color: $accent1-color;
+}
+
+#header h2 {
+    font-size: 5.5vh;
+    line-height: 5.5vh;
+    text-transform: uppercase;
+    color: $accent2-color;
+}
+
+
+/* About Section */
+
+#about img {
+    display: inline;
+    max-width: 65vw;
+    max-height: 65vw;
+    position: relative;
+    margin: 3vw;
+}
+
+
+/* Portfolio Section */
+
+#portfolio {
+    min-height: 90vh;
+}
+
+#portfolio .carousel {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+#portfolio .carousel_row {
+    margin: $tileMargin 0;
+}
+
+#portfolio .carousel_row_inner {
+    @include transition($duration transform);
+    white-space: nowrap;
+}
+
+#portfolio .tile {
+    display: inline-block;
+    position: relative;
+    width: $tileWidth;
+    height: $tileHeight;
+    min-width: $tileMinWidth;
+    min-height: $tileMinHeight;
+    left: 0px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: $duration all;
+    transform-origin: center left;
+}
+
+#portfolio .tile_img {
+    width: $tileWidth;
+    height: $tileHeight;
+    min-width: $tileMinWidth;
+    min-height: $tileMinHeight;
+    object-fit: cover;
+}
+
+#portfolio .carousel_nav {
+    cursor: pointer;
+    display: inline-block;
+    z-index: 10;
+    font-size: 40px;
+    color: rgb(200, 200, 200);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 8px;
+    position: relative;
+    top: -15vh;
+}
+
+#portfolio .carousel_left {
+    float: left;
+    margin-left: 1vw;
+}
+
+#portfolio .carousel_right {
+    float: right;
+    margin-right: 1vw;
+}
+
+#portfolio .carousel_desc {
+    display: none;
+    margin-bottom: 50px;
+    max-width: 500px;
+}
+
+#portfolio em {
+    color: $accent1-color;
+    font-style: normal;
+    font-weight: $em-font-weight;
+}
+
+#portfolio ul {
+    list-style-position: inside;
+    list-style-type: none;
+    font-size: 18px;
+    margin: 0px;
+}
+
+
+/* Contact Section */
+
+#contact .col {
+    min-height: 42px;
+    height: 12vw;
+}
+
+#contact img {
+    width: 10vw;
+    min-width: 35px;
+    max-width: 75px;
+    margin: 5px 5px;
+    @include transition(0.3s);
+}
+
+#contact img:hover {
+    transform: scale(1.2);
+}
+
+
+/* Work Info Section */
+#workinfo {
+    padding-top: 10vh;
+    min-height: 90vh;
+}
+
+
+/* Footer */
+
+#footer {
+    height: 60px;
+    z-index: 100;
+    border-style: solid;
+    border-color: $accent2-color;
+    border-width: 2px 0px 0px 0px;
+    padding: 10px;
+}
+
+#footer h2 {
+    position: relative;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    color: $accent1-color;
+}
