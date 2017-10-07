@@ -95,9 +95,11 @@ h2.right {
 }
 
 h3 {
-    font: $subtitle-font;
-    color: $main-color;
-    font-size: 2vh;
+    border-style: inset;
+    border-color: invert($background-color);
+    border-width: 0px 0px 2px 0px;
+    font-size: 28px;
+    line-height: 50px;
 }
 
 p {
@@ -152,6 +154,7 @@ button:hover {
 .navbar h1 {
     display: inline;
     font-size: 32px;
+    text-align: left;
     text-transform: none;
     line-height: 32px;
     letter-spacing: 2px;
@@ -161,6 +164,7 @@ button:hover {
 .navbar h2 {
     display: block;
     font-size: 14px;
+    text-align: left;
     text-transform: none;
     letter-spacing: -0.75px;
     color: $background-color;
@@ -194,7 +198,7 @@ button:hover {
     right: 20px;
     top: 12px;
     max-height: 50px;
-    height: 10vw;
+    @include transition(0.3s);
 }
 
 .navbar .dd-content {
@@ -204,7 +208,7 @@ button:hover {
     width: 200px;
     max-width: 100%;
     right: 0px;
-    top: 70px;
+    top: 74px;
 }
 
 .navbar .dd-content a {
@@ -212,26 +216,29 @@ button:hover {
     text-align: center;
     padding: 12px 16px;
     color: invert($main-color);
+    @include transition(0.3s);
+    border-style: solid;
+    border-color: lighten(invert($background-color), 10%);
+    border-width: 1px 0px;
 }
 
-//.navbar #navmenu img {
-//    height: 10vw;
-//    max-height: 50px;
-//    float: right;
-//}
+.navbar .dd-content a:hover {
+    color: $accent1-color;
+    background-color: lighten(invert($background-color), 10%);
+}
 
 .navbar button {
     display: inline;
-    min-width: 100px;
+    min-width: 75px;
     width: 8vw;
-    max-width: 125px;
+    max-width: 100px;
     height: 4vw;
     min-height: 30px;
     max-height: 70px;
     background-color: invert($background-color);
     color: invert($main-color);
     padding: 5px 10px;
-    font-size: 20px;
+    font-size: 18px;
     border-width: 0px 1px;
     border-color: lighten($main-color, 10);
     outline: none;
@@ -291,62 +298,7 @@ button:hover {
 }
 
 
-/* Header Section */
-
-
-/*
-#header {
-    min-height: 100vh;
-    background-position: top center;
-    background-attachment: fixed;
-    background-image: url("../images/Header.jpg");
-    background-size: cover;
-}
-
-#header .container {
-    position: relative;
-}
-
-#header h1 {
-    font-size: 11vh;
-    line-height: 11vh;
-    color: $accent1-color;
-}
-
-#header h2 {
-    font-size: 5.5vh;
-    line-height: 5.5vh;
-    text-transform: uppercase;
-    color: $accent2-color;
-}
-*/
-
-
-/* About Section */
-
-#about img {
-    display: inline;
-    position: relative;
-    margin: 0vw 3vw;
-    max-width: 250px;
-    width: 95%;
-}
-
-#about p {
-    padding: 0px 10px;
-    text-align: left;
-}
-
-
 /* Portfolio Section */
-
-#portfolio h3 {
-    border-style: inset;
-    border-color: invert($background-color);
-    border-width: 0px 0px 2px 0px;
-    font-size: 28px;
-    line-height: 50px;
-}
 
 #portfolio .item {
     width: 300px;
@@ -400,84 +352,64 @@ button:hover {
 }
 
 
-/*
-#portfolio .carousel {
-    overflow-x: hidden;
-    width: 100%;
-}
+/* About Section */
 
-#portfolio .carousel_row {
-    margin: $tileMargin 0;
-}
-
-#portfolio .carousel_row_inner {
-    @include transition($duration transform);
-    white-space: nowrap;
-}
-
-#portfolio .tile {
-    display: inline-block;
+#about img {
+    display: block;
     position: relative;
-    width: $tileWidth;
-    height: $tileHeight;
-    min-width: $tileMinWidth;
-    min-height: $tileMinHeight;
-    left: 0px;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: $duration all;
-    transform-origin: center left;
+    max-width: 250px;
+    width: 95%;
 }
 
-#portfolio .tile_img {
-    width: $tileWidth;
-    height: $tileHeight;
-    min-width: $tileMinWidth;
-    min-height: $tileMinHeight;
-    object-fit: cover;
+#about p {
+    padding: 0px 10px;
+    text-align: left;
 }
 
-#portfolio .carousel_nav {
-    cursor: pointer;
-    display: inline-block;
-    z-index: 10;
-    font-size: 40px;
-    color: rgb(200, 200, 200);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0px 8px;
+#about .button {
+    display: block;
     position: relative;
-    top: -15vh;
+    width: 95%;
+    max-with: 250px;
 }
 
-#portfolio .carousel_left {
-    float: left;
-    margin-left: 1vw;
+
+/* Skills Section */
+#skills .item {
+    background-color: $background-color;
+    width: 150px;
+    display: inline-block;
+    font: $main-font;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border-style: solid;
+    border-color: lighten(invert($background-color), 70%);
+    border-width: 0px 1px;
+    margin: 0px -3px 20px -3px;
 }
 
-#portfolio .carousel_right {
-    float: right;
-    margin-right: 1vw;
+#skills .left {
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
 }
 
-#portfolio .carousel_desc {
-    display: none;
-    margin-bottom: 50px;
-    max-width: 500px;
+#skills .right {
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
 }
 
-#portfolio em {
-    color: $accent1-color;
-    font-style: normal;
-    font-weight: $em-font-weight;
+#skills .single {
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
 }
 
-#portfolio ul {
-    list-style-position: inside;
-    list-style-type: none;
-    font-size: 18px;
-    margin: 0px;
-}*/
-
+#skills img {
+    width: 100px;
+    display: block;
+    margin: 25px;
+}
 
 /* Contact Section */
 

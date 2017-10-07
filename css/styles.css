@@ -46,9 +46,11 @@ h2.right {
   text-align: right; }
 
 h3 {
-  font: "Heebo", sans-serif 400;
-  color: #1E1E20;
-  font-size: 2vh; }
+  border-style: inset;
+  border-color: #151515;
+  border-width: 0px 0px 2px 0px;
+  font-size: 28px;
+  line-height: 50px; }
 
 p {
   font: "Hind", sans-serif 300;
@@ -95,6 +97,7 @@ button:hover {
 .navbar h1 {
   display: inline;
   font-size: 32px;
+  text-align: left;
   text-transform: none;
   line-height: 32px;
   letter-spacing: 2px;
@@ -103,6 +106,7 @@ button:hover {
 .navbar h2 {
   display: block;
   font-size: 14px;
+  text-align: left;
   text-transform: none;
   letter-spacing: -0.75px;
   color: #EAEAEA;
@@ -131,7 +135,10 @@ button:hover {
   right: 20px;
   top: 12px;
   max-height: 50px;
-  height: 10vw; }
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
 
 .navbar .dd-content {
   display: none;
@@ -140,26 +147,37 @@ button:hover {
   width: 200px;
   max-width: 100%;
   right: 0px;
-  top: 70px; }
+  top: 74px; }
 
 .navbar .dd-content a {
   display: block;
   text-align: center;
   padding: 12px 16px;
-  color: #e1e1df; }
+  color: #e1e1df;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border-style: solid;
+  border-color: #2f2f2f;
+  border-width: 1px 0px; }
+
+.navbar .dd-content a:hover {
+  color: #F43D16;
+  background-color: #2f2f2f; }
 
 .navbar button {
   display: inline;
-  min-width: 100px;
+  min-width: 75px;
   width: 8vw;
-  max-width: 125px;
+  max-width: 100px;
   height: 4vw;
   min-height: 30px;
   max-height: 70px;
   background-color: #151515;
   color: #e1e1df;
   padding: 5px 10px;
-  font-size: 20px;
+  font-size: 18px;
   border-width: 0px 1px;
   border-color: #37373a;
   outline: none; }
@@ -205,53 +223,7 @@ button:hover {
 #top {
   min-height: 70px; }
 
-/* Header Section */
-/*
-#header {
-    min-height: 100vh;
-    background-position: top center;
-    background-attachment: fixed;
-    background-image: url("../images/Header.jpg");
-    background-size: cover;
-}
-
-#header .container {
-    position: relative;
-}
-
-#header h1 {
-    font-size: 11vh;
-    line-height: 11vh;
-    color: $accent1-color;
-}
-
-#header h2 {
-    font-size: 5.5vh;
-    line-height: 5.5vh;
-    text-transform: uppercase;
-    color: $accent2-color;
-}
-*/
-/* About Section */
-#about img {
-  display: inline;
-  position: relative;
-  margin: 0vw 3vw;
-  max-width: 250px;
-  width: 95%; }
-
-#about p {
-  padding: 0px 10px;
-  text-align: left; }
-
 /* Portfolio Section */
-#portfolio h3 {
-  border-style: inset;
-  border-color: #151515;
-  border-width: 0px 0px 2px 0px;
-  font-size: 28px;
-  line-height: 50px; }
-
 #portfolio .item {
   width: 300px;
   height: 270px;
@@ -300,83 +272,55 @@ button:hover {
   color: #C13F1C;
   margin-right: 5px; }
 
-/*
-#portfolio .carousel {
-    overflow-x: hidden;
-    width: 100%;
-}
+/* About Section */
+#about img {
+  display: block;
+  position: relative;
+  max-width: 250px;
+  width: 95%; }
 
-#portfolio .carousel_row {
-    margin: $tileMargin 0;
-}
+#about p {
+  padding: 0px 10px;
+  text-align: left; }
 
-#portfolio .carousel_row_inner {
-    @include transition($duration transform);
-    white-space: nowrap;
-}
+#about .button {
+  display: block;
+  position: relative;
+  width: 95%;
+  max-with: 250px; }
 
-#portfolio .tile {
-    display: inline-block;
-    position: relative;
-    width: $tileWidth;
-    height: $tileHeight;
-    min-width: $tileMinWidth;
-    min-height: $tileMinHeight;
-    left: 0px;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: $duration all;
-    transform-origin: center left;
-}
+/* Skills Section */
+#skills .item {
+  background-color: #EAEAEA;
+  width: 150px;
+  display: inline-block;
+  font: "Hind", sans-serif 300;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border-width: 0px 1px;
+  margin: 0px -3px 20px -3px; }
 
-#portfolio .tile_img {
-    width: $tileWidth;
-    height: $tileHeight;
-    min-width: $tileMinWidth;
-    min-height: $tileMinHeight;
-    object-fit: cover;
-}
+#skills .left {
+  border-style: solid;
+  border-width: 0px 1px 0px 0px; }
 
-#portfolio .carousel_nav {
-    cursor: pointer;
-    display: inline-block;
-    z-index: 10;
-    font-size: 40px;
-    color: rgb(200, 200, 200);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0px 8px;
-    position: relative;
-    top: -15vh;
-}
+#skills .right {
+  border-style: solid;
+  border-width: 0px 0px 0px 1px; }
 
-#portfolio .carousel_left {
-    float: left;
-    margin-left: 1vw;
-}
+#skills .single {
+  border-style: solid;
+  border-width: 0px; }
 
-#portfolio .carousel_right {
-    float: right;
-    margin-right: 1vw;
-}
+#skills img {
+  width: 100px;
+  display: block;
+  margin: 25px; }
 
-#portfolio .carousel_desc {
-    display: none;
-    margin-bottom: 50px;
-    max-width: 500px;
-}
-
-#portfolio em {
-    color: $accent1-color;
-    font-style: normal;
-    font-weight: $em-font-weight;
-}
-
-#portfolio ul {
-    list-style-position: inside;
-    list-style-type: none;
-    font-size: 18px;
-    margin: 0px;
-}*/
 /* Contact Section */
 #contact .col {
   min-height: 42px;
