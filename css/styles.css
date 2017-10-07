@@ -24,7 +24,8 @@ body {
   background-color: #EAEAEA;
   color: #1E1E20;
   font: "Hind", sans-serif 300;
-  font-size: 16px; }
+  font-size: 16px;
+  overflow-x: hidden; }
 
 h1 {
   font: "Heebo", sans-serif 500;
@@ -54,7 +55,7 @@ p {
   font-size: 18px; }
 
 br {
-  margin-bottom: 5px; }
+  margin-bottom: 15px; }
 
 a {
   text-decoration: none;
@@ -92,27 +93,60 @@ button:hover {
   font-style: normal; }
 
 .navbar h1 {
-  display: inline-block;
+  display: inline;
   font-size: 32px;
-  text-transform: uppercase;
-  letter-spacing: 3px; }
+  text-transform: none;
+  line-height: 32px;
+  letter-spacing: 2px;
+  margin-right: 5px; }
 
 .navbar h2 {
-  display: inline-block;
-  font-size: 24px;
-  text-transform: uppercase;
-  line-height: 32px;
-  letter-spacing: 1px;
-  padding: 0px 0px 0px 20px; }
-
-.navbar h3 {
-  display: inline-block;
-  font-size: 16px;
+  display: block;
+  font-size: 14px;
+  text-transform: none;
   letter-spacing: -0.75px;
-  color: #EAEAEA; }
+  color: #EAEAEA;
+  max-width: 70vw; }
 
-.navbar .col {
-  width: 100px; }
+.navbar .pconly {
+  display: inline; }
+
+.navbar .mobileonly {
+  display: none; }
+
+.navbar #navtitle img {
+  display: inline;
+  height: 30px;
+  margin: 0px 5px;
+  position: relative;
+  top: -5px; }
+
+.navbar #navmenu {
+  width: 100%;
+  max-width: 550px; }
+
+.navbar .dd-button {
+  position: fixed;
+  z-index: 1;
+  right: 20px;
+  top: 12px;
+  max-height: 50px;
+  height: 10vw; }
+
+.navbar .dd-content {
+  display: none;
+  position: fixed;
+  background-color: #151515;
+  width: 200px;
+  max-width: 100%;
+  right: 0px;
+  top: 70px; }
+
+.navbar .dd-content a {
+  display: block;
+  text-align: center;
+  padding: 12px 16px;
+  color: #e1e1df; }
 
 .navbar button {
   display: inline;
@@ -202,10 +236,13 @@ button:hover {
 #about img {
   display: inline;
   position: relative;
-  margin: 0vw 3vw; }
+  margin: 0vw 3vw;
+  max-width: 250px;
+  width: 95%; }
 
 #about p {
-  padding: 0px 10px; }
+  padding: 0px 10px;
+  text-align: left; }
 
 /* Portfolio Section */
 #portfolio h3 {
@@ -220,15 +257,16 @@ button:hover {
   height: 270px;
   display: inline-block;
   margin: 5px 5px 2vh 5px;
-  font-color: #1E1E20;
+  color: #1E1E20;
   padding: 5px; }
 
 #portfolio .item .title {
   display: inline-block;
   font-size: 20px;
   font: "Heebo", sans-serif 500;
-  text-transform: uppercase;
-  color: #F43D16;
+  font-weight: bolder;
+  text-transform: none;
+  color: #1E1E20;
   width: 100%;
   border-style: inset;
   border-color: #151515;
@@ -360,8 +398,25 @@ button:hover {
 
 /* Work Info Section */
 #workinfo {
-  padding-top: 10vh;
   min-height: 90vh; }
+
+#workinfo .header {
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+#workinfo h2 {
+  display: inline-block;
+  font-size: 40px;
+  font: "Heebo", sans-serif 500;
+  font-weight: bolder;
+  text-transform: none;
+  color: #C13F1C;
+  width: 100%;
+  border-style: inset;
+  border-color: #151515;
+  border-width: 0px 0px 1px 0px;
+  margin-bottom: 5px; }
 
 /* Footer */
 #footer {

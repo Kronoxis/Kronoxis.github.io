@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ---------------------------------------------- -->
+<!-- © Kronoxis 2017, all rights reserved           -->
+<!-- All code below has been written by Kronoxis    -->
+<!-- Icons by Iconmonstr (iconmonstr.com)           -->
+<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
+<!-- ---------------------------------------------- -->
 
 <head>
     <!-- Title -->
     <title>Kronoxis - Portfolio</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="../images/favicon.png">
 
     <!-- Meta Tags -->
     <meta charset="UTF-8">
@@ -28,52 +34,84 @@
 
 <body>
     <!-- Navigation -->
-    <div class="navbar">
+    <div class="navbar" id="navbar">
         <div class="container">
-            <div class="col-sm">
-                <a href="#header">
-                    <img src="../images/logo.png" alt="Kronoxis Logo" />
-                </a>
+            <div id="navtitle">
+                <a href="../index.html"><h1>Kronoxis</h1></a>
+
+                <div class="pconly">
+                    <a href="mailto:contact@kronoxis.com" target="_blank">
+                        <img src="../images/mail.png" alt="Mail" />
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="https://github.com/Kronoxis" target="_blank">
+                        <img src="../images/github.png" alt="GitHub" />
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="https://www.linkedin.com/in/quintenwuyts/" target="_blank">
+                        <img src="../images/linkedin.png" alt="LinkedIn" />
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="https://www.twitter.com/Dev_Kronoxis" target="_blank">
+                        <img src="../images/twitter.png" alt="Twitter" />
+                    </a>
+                </div>
+
+                <h2>All round developer with an extra bit of passion for Programming</h2>
+
             </div>
-            <div class="col-sm">
-                <div class="row" align="center">
-                    <div class="col-sm">
-                        <a href="../index.html#header">
-                            <button type="button">Home</button>
-                        </a>
-                        <a href="../index.html#about">
-                            <button type="button">About</button>
-                        </a>
-                        <a href="../index.html#portfolio">
-                            <button type="button">Portfolio</button>
-                        </a>
-                        <a href="../index.html#contact">
-                            <button type="button">Contact</button>
-                        </a>
-                    </div>
+            <div id="navmenu">
+                <div class="pconly">
+                    <a href="../index.html#top">
+                        <button type="button">Home</button>
+                    </a>
+                </div>
+
+                <div class="pconly">
+                    <a href="../index.html#portfolio">
+                        <button type="button">Portfolio</button>
+                    </a>
+                </div>
+
+                <div class="pconly">
+                    <a href="../index.html#about">
+                        <button type="button">About</button>
+                    </a>
+                </div>
+
+                <div class="pconly">
+                    <a href="../index.html#contact">
+                        <button type="button">Contact</button>
+                    </a>
+                </div>
+
+                <div class="mobileonly">
+                    <img src="images/menu.png" alt="Menu" />
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Work Info -->
+    <!-- Sections -->
     <div class="section">
+        <!-- Top Section -->
+        <div id="top">
+        </div>
+
+        <!-- Work Section -->
         <div id="workinfo">
             <div class="container">
+                <div class="header" style="background-image: url(../images/Solani/Header.jpg)"></div>
                 <h2>Solani</h2>
                 <p>
                     Solani is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower you to use and control light.
+                    <br /> This game was created by a group of 5 people. Since only one of these 5 was an artist, the programmers had to help out the artist where needed. They helped with for example Level design and Particles.
+                    <br /> Being one of the Programmers of Solani, I was responsible for the Camera and the UI. Later on I helped out with the Enemies as well. As a team member, I tried to help out where I could, which included optimizing and improving code and other various bits such as fog.
+                    <br /> The build of this game is made for WebGL and can be played online. To have the best experience, I advise you to run your browser with a decent GPU, preferably in <i>Firefox x64</i>.
                 </p>
-                <p>
-                    This game was created by a group of 5 people. Since only one of these 5 was an artist, the programmers had to help out the artist where needed. They helped with for example Level design and Particles.
-                </p>
-                <p>
-                    Being one of the Programmers of Solani, I was responsible for the Camera and the UI. Later on I helped out with the Enemies as well. As a team member, I tried to help out where I could, which included optimizing and improving code and other various bits such as fog. 
-                </p>
-                <p>
-                    The build of this game is made for WebGL and can be played online. To have the best experience, I advise you to run your browser with a decent GPU, preferably in <i>Firefox x64</i>. 
-                </p>
-                
                 <a href="../SolaniBuild/index.html">
                     <button type="button">Play</button>
                 </a>
@@ -86,10 +124,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left">© 2017 Kronoxis</h2>
-                </div>
-                <div class="col">
-                    <h2 class="right">Kronoxis - Portfolio</h2>
+                    <h2 class="left" id="copyright">© Kronoxis</h2>
                 </div>
             </div>
         </div>
@@ -106,23 +141,87 @@
         // Start running functions when document is ready
         $(document).ready(function () {
             // ***
-            // Set top padding of workinfo section to right below navbar
+            // Set Top Section height to height of navbar
+            // Timeout function (resize event can be called many times)
             // ***
             $(function () {
                 var timer_id;
                 $(window).on(
                     "resize",
                     function () {
-                        $(document.getElementById("workinfo")).css("padding-top", document.getElementsByClassName("navbar")[0].getBoundingClientRect().bottom);
+                        clearTimeout(timer_id);
+                        timer_id = setTimeout(function () {
+                                // Top Section Height
+                                var header = document.getElementById("top");
+                                var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                                var height = navbarOffset;
+                                $(header).css("height", height + "px");
+
+                                // Navbar Menu
+                                var navbar = document.getElementById("navbar");
+                                var pconly = document.getElementsByClassName("pconly");
+                                var mobileonly = document.getElementsByClassName("mobileonly");
+                                var width = parseFloat(document.getElementById("navbar").getBoundingClientRect().right);
+                                if (width < 992) {
+                                    for (var i = 0; i < pconly.length; ++i) {
+                                        $(pconly[i]).css("display", "none");
+                                    }
+                                    for (var i = 0; i < mobileonly.length; ++i) {
+                                        $(mobileonly[i]).css("display", "inline");
+                                    }
+                                } else {
+                                    for (var i = 0; i < pconly.length; ++i) {
+                                        $(pconly[i]).css("display", "inline")
+                                    }
+                                    for (var i = 0; i < mobileonly.length; ++i) {
+                                        $(mobileonly[i]).css("display", "none");
+                                    }
+                                }
+                            },
+                            100);
                     }
-                )
-            })
+                );
+            });
+
+            // ***
+            // Set Year
+            // ***
+            $(function () {
+                var year = new Date().getFullYear();
+                var lastUpdateYear = 2017;
+                if (year >= lastUpdateYear)
+                    document.getElementById("copyright").innerHTML = "© Kronoxis " + year;
+            });
 
             // ***
             // Manually Call Functions
             // ***
-            // Set Top Padding upon loading (Calling resize doesn't work)
-            $(document.getElementById("workinfo")).css("padding-top", document.getElementsByClassName("navbar")[0].getBoundingClientRect().bottom);
+            // Top Section Height
+            var header = document.getElementById("top");
+            var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+            var height = navbarOffset;
+            $(header).css("height", height + "px");
+
+            // Navbar Menu
+            var navbar = document.getElementById("navbar");
+            var pconly = document.getElementsByClassName("pconly");
+            var mobileonly = document.getElementsByClassName("mobileonly");
+            var width = parseFloat(document.getElementById("navbar").getBoundingClientRect().right);
+            if (width < 992) {
+                for (var i = 0; i < pconly.length; ++i) {
+                    $(pconly[i]).css("display", "none");
+                }
+                for (var i = 0; i < mobileonly.length; ++i) {
+                    $(mobileonly[i]).css("display", "inline");
+                }
+            } else {
+                for (var i = 0; i < pconly.length; ++i) {
+                    $(pconly[i]).css("display", "inline")
+                }
+                for (var i = 0; i < mobileonly.length; ++i) {
+                    $(mobileonly[i]).css("display", "none");
+                }
+            }
         });
     </script>
 </body>
