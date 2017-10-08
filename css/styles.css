@@ -1,23 +1,6 @@
-/*
-Color Scheme: Sea Wolf (Adobe Color CC)
-Highlight 1: #DC3522
-Text       : #D9CB9E
-Background1: #374140
-Background2: #2A2C2B
-Background3: #1E1E20
-
-Color Scheme 2: 15852817631eebf7696d5o (Adobe Color CC)
-Highlight 1: #F43D16
-Highlight 2: #C13F1C
-Highlight 3: #580A06 
-Text       : #FDB76E 
-Background : #7589A5 
-*/
 * {
   margin: 0;
   padding: 0;
-  /* Visualize Box Model */
-  /*border: 1px dashed white;*/
   box-sizing: border-box; }
 
 body {

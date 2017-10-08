@@ -60,36 +60,44 @@
                     </a>
                 </div>
 
-                <h2>All round developer with an extra bit of passion for Programming</h2>
+                <h2>Versatile developer with an extra bit of passion for Programming</h2>
 
             </div>
-            <div id="navmenu">
-                <div class="pconly">
-                    <a href="../index.html#top">
-                        <button type="button">Home</button>
-                    </a>
-                </div>
-
+            <div id="navmenu" align="right">
                 <div class="pconly">
                     <a href="../index.html#portfolio">
                         <button type="button">Portfolio</button>
                     </a>
                 </div>
-
                 <div class="pconly">
                     <a href="../index.html#about">
                         <button type="button">About</button>
                     </a>
                 </div>
-
+                <div class="pconly">
+                    <a href="../index.html#skills">
+                        <button type="button">Skills</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
+                        <button type="button">Resume</button>
+                    </a>
+                </div>
                 <div class="pconly">
                     <a href="../index.html#contact">
                         <button type="button">Contact</button>
                     </a>
                 </div>
-
                 <div class="mobileonly">
-                    <img src="images/menu.png" alt="Menu" />
+                    <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
+                    <div id="dd-menu" class="dd-content">
+                        <a href="../index.html#portfolio">Portfolio</a>
+                        <a href="../index.html#about">About</a>
+                        <a href="../index.html#skills">Skills</a>
+                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
+                        <a href="../index.html#contact">Contact</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,7 +109,7 @@
         <div id="top">
         </div>
 
-        <!-- Work Section -->
+        <!-- Workinfo Section -->
         <div id="workinfo">
             <div class="container">
                 <div class="header" style="background-image: url(../images/Solani/Header.jpg)"></div>
@@ -110,7 +118,7 @@
                     Solani is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower you to use and control light.
                     <br /> This game was created by a group of 5 people. Since only one of these 5 was an artist, the programmers had to help out the artist where needed. They helped with for example Level design and Particles.
                     <br /> Being one of the Programmers of Solani, I was responsible for the Camera and the UI. Later on I helped out with the Enemies as well. As a team member, I tried to help out where I could, which included optimizing and improving code and other various bits such as fog.
-                    <br /> The build of this game is made for WebGL and can be played online. To have the best experience, I advise you to run your browser with a decent GPU, preferably in <i>Firefox x64</i>.
+                    <br /> The build of this game is made for WebGL and can be played online. To have the best experience, I advise you to run your browser with a decent GPU, preferably in <i>Firefox 64 bit</i>.
                 </p>
                 <a href="../SolaniBuild/index.html">
                     <button type="button">Play</button>
@@ -138,10 +146,41 @@
         // Secure JS
         "use strict";
 
+        function dropdown() {
+            toggleDisplay();
+            toggleFilter();
+        }
+
+        function toggleDisplay() {
+            var d = document.getElementById("dd-menu");
+            var display = $(d).css("display");
+            if (display === "none") {
+                $(d).css("display", "block");
+            } else {
+                $(d).css("display", "none");
+            }
+        }
+
+        function toggleFilter() {
+            var button = $(document.getElementsByClassName("dd-button")[0]);
+            if (button.css("filter").indexOf("120%") != -1) {
+                button.css("filter", "grayscale(0%) invert(0%) brightness(100%)");
+                button.css("-webkit-filter", "grayscale(0%) invert(0%) brightness(100%)");
+            } else {
+                button.css("filter", "grayscale(100%) invert(100%) brightness(120%)");
+                button.css("-webkit-filter", "grayscale(100%) invert(100%) brightness(120%)");
+            }
+
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
         // Start running functions when document is ready
         $(document).ready(function () {
             // ***
-            // Set Top Section height to height of navbar
+            // Set Top Section height to height of navbar, choose menu button depending on width
             // Timeout function (resize event can be called many times)
             // ***
             $(function () {
@@ -184,18 +223,31 @@
             });
 
             // ***
-            // Set Year
+            // Dropdown
             // ***
-            $(function () {
-                var year = new Date().getFullYear();
-                var lastUpdateYear = 2017;
-                if (year >= lastUpdateYear)
-                    document.getElementById("copyright").innerHTML = "© Kronoxis " + year;
-            });
+            window.onclick = function (event) {
+                if (!event.target.matches(".dd-button")) {
+                    $(document.getElementsByClassName("dd-button")[0]).css("filter", "grayscale(0%) invert(0%) brightness(100%)");
+                    $(document.getElementsByClassName("dd-button")[0]).css("-webkit-filter", "grayscale(0%) invert(0%) brightness(100%)");
+                    $(document.getElementById("dd-menu")).css("display", "none");
+                }
+            }
 
             // ***
-            // Manually Call Functions
+            // Set Year
             // ***
+            var year = new Date().getFullYear();
+            var lastUpdateYear = 2017;
+            if (year >= lastUpdateYear)
+                document.getElementById("copyright").innerHTML = "© Kronoxis " + year;
+
+            // ***
+            // Remove # from url
+            // ***
+            var indexOfHash = window.location.href.indexOf("#");
+            if (indexOfHash != -1)
+                window.location.href = window.location.href.substr(0, indexOfHash);
+
             // Top Section Height
             var header = document.getElementById("top");
             var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
@@ -222,6 +274,9 @@
                     $(mobileonly[i]).css("display", "none");
                 }
             }
+
+            // Hide Navbar Buttons
+            $(document.getElementById("dd-menu")).css("display", "none");
         });
     </script>
 </body>
