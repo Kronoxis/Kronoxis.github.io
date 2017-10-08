@@ -366,11 +366,12 @@ button:hover {
     text-align: left;
 }
 
-#about .button {
+#about button {
     display: block;
     position: relative;
     width: 95%;
-    max-with: 250px;
+    max-width: 250px;
+    min-width: 50px;
 }
 
 

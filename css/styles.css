@@ -283,11 +283,12 @@ button:hover {
   padding: 0px 10px;
   text-align: left; }
 
-#about .button {
+#about button {
   display: block;
   position: relative;
   width: 95%;
-  max-with: 250px; }
+  max-width: 250px;
+  min-width: 50px; }
 
 /* Skills Section */
 #skills .item {
@@ -314,7 +315,7 @@ button:hover {
 
 #skills .single {
   border-style: solid;
-  border-width: 0px; }
+  border-width: 0px 0px 0px 0px; }
 
 #skills img {
   width: 100px;
