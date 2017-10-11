@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,14 +23,17 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
-    <link href="../css/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -111,10 +115,38 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <p>
-                    Under Construction, use the navigation bar to go back.
-                </p>
+            <div class="container" align="center">
+                <img class="header" src="../images/Axe/Header.jpg" alt="MTech USA Adventurer's Axe Header" />
+                <h2>MTech USA Adventurer's Axe</h2>
+                <div class="infosection">
+                    <h3>The Asset</h3>
+                    <p>
+                        The Adventurer's Axe, made by MTech USA, is a small axe with many uses, from cutting down branches to chopping in some wild beast's head. This tool is a must-have for every survivalist out there. The soft rope around the handle makes this axe feel comfortable to use. The model has been designed to be used as a melee weapon in a first-person survival game.
+                    </p>
+                    <div class="videoWrapper">
+                        <iframe src="https://sketchfab.com/models/8032e539be204b2bbc19f7f664fe9e31/embed?autostart=1"></iframe>
+                    </div>
+                    <h3>The Development</h3>
+                    <p>
+                        With its 2,242 triangles, this model is optimized to be used in a game engine. It has been created by modeling a high-poly version first, based on reference images. After the high-poly model was done, a low-poly version was made, removing unnecessary triangles that added no definition to the model. Using a projection cage, normals were created to fake the smoothness of the high-poly onto the low-poly axe. PBR textures were created in Photoshop. The render was made in Unreal Engine 4. This model was created in one week.
+                    </p>
+                    <a href="../images/Axe/BaseColor.png" class="popup-gallery">
+                        <img src="../images/Axe/BaseColor.png" alt="MTech USA Adventurer's Axe Base Colour" style="max-width: 23%; padding-left: 0px; padding-right: 0px;" />
+                    </a>
+                    <a href="../images/Axe/Metalness.png" class="popup-gallery">
+                        <img src="../images/Axe/Metalness.png" alt="MTech USA Adventurer's Axe Metalness" style="max-width: 23%; padding-left: 0px; padding-right: 0px;" />
+                    </a>
+                    <a href="../images/Axe/Roughness.png" class="popup-gallery">
+                        <img src="../images/Axe/Roughness.png" alt="MTech USA Adventurer's Axe Roughness" style="max-width: 23%; padding-left: 0px; padding-right: 0px;" />
+                    </a>
+                    <a href="../images/Axe/Normals.png" class="popup-gallery">
+                        <img src="../images/Axe/Normals.png" alt="MTech USA Adventurer's Axe Normals" style="max-width: 23%; padding-left: 0px; padding-right: 0px;" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        Making this Axe really helped me understand the PBR asset creation workflow. I learned more about optimizing a low poly model and unwrapping, as well as creating a projection cage and texturing.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +156,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +165,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -239,6 +273,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");

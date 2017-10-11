@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,12 +23,15 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
     <link href="../css/styles.css" type="text/css" rel="stylesheet" />
 </head>
@@ -111,10 +115,43 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <p>
-                    Under Construction, use the navigation bar to go back.
-                </p>
+            <div class="container" align="center">
+                <img class="header" src="../images/CaptainToad/Header.jpg" alt="CaptainToad Header" />
+                <h2>Captain Toad - Treasure Hunt</h2>
+                <div class="infosection">
+                    <h3>The Game</h3>
+                    <p>
+                        Captain Toad, originally created by <i>Nintendo</i>, is a kids puzzle game, revolving around the character Toad from the <i>Super Mario World</i>. This pirate-themed spin-off introduces new jungle-based mechanics, with the ultimate goal of finding the treasure chest hidden deep inside the jungle.
+                    </p>
+                    <p>
+                        The game was built as standalone with keyboard/mouse and Xbox controller support. It's a single player campaign.
+                    </p>
+                    <a href="../images/CaptainToad/Level2.jpg" class="popup">
+                        <img src="../images/CaptainToad/Level2.jpg" alt="Captain Toad Level 2" />
+                    </a>
+                    <h3>The Development</h3>
+                    <p>
+                        A random group of 4 game developers was assembled for this project. The development time was about 1 month, stretched over a span of 3 months. The software we used were Unity3D with C# scripts, 3ds Max and Photoshop.
+                    </p>
+                    <h3>The Team</h3>
+                    <p>
+                        Captain Toad's development team existed of 3 programmers and one artist. Although it was originally planned that one level would be made per developer, programmers decided to step in and help the artist create the mechanics for his level, so he could focus more on character creation and texturing.
+                    </p>
+                    <h3>My Input</h3>
+                    <p>
+                        In the game I created a few mechanics such as the liana, the character controller and the camera. I also designed the tutorial level and the fourth level (inside the temple).
+                    </p>
+                    <a href="../images/CaptainToad/CaptainToad_Snippet.jpg" class="popup">
+                        <img src="../images/CaptainToad/CaptainToad_Snippet.jpg" alt="Captain Toad Camera Zoom Snippet" />
+                    </a>
+                    <a href="../images/CaptainToad/Level4.jpg" class="popup">
+                        <img src="../images/CaptainToad/Level4.jpg" alt="Captain Toad Level 4" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        This project was my first team project, as well as my first experience with source control. I also made this project in the first year of starting out with Unity, so the environment and engine were still quite new to me. This project is what sparked my interest in Unity, team development and source control.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +161,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +170,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -239,6 +278,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");

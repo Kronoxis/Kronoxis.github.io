@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,14 +23,17 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
-    <link href="../css/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -111,10 +115,36 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <p>
-                    Under Construction, use the navigation bar to go back.
-                </p>
+            <div class="container" align="center">
+                <img class="header" src="../images/SurvivalAI/Header.jpg" alt="Survival AI Header" />
+                <h2>Survival AI</h2>
+                <div class="infosection">
+                    <h3>The AI</h3>
+                    <p>
+                        Thrown into an unknown world, filled with endless amount of zombies, this AI agent tries his best to survive as long as possible. The agent has no information about the world, other than what it can see in its field of view. To survive, it must replenish its energy by eating food and minimize taking damage by killing or avoiding enemies.
+                    </p>
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/237696926" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                    <h3>The Development</h3>
+                    <p>
+                        The environment for this AI was built in a custom C++ engine. I had no access to the source code of this framework, the only information that could be requested was information about the agent, such as its health, energy and inventory, and what was inside its field of view. The AI logic was written in about a week.
+                    </p>
+                    <h3>Features</h3>
+                    <p>
+                        This agent covers the basic features of an AI entity. It has a behaviour tree for decision making, a searching algorithm to scavenge houses, and steering behaviours. The behaviour tree uses blackboards to store and manage data of any type. The steering pipeline exists of a fixed goal targeter, a nav mesh decomposer, an avoid enemy constraint and a basic seek actuator.
+                    </p>
+                    <a href="../images/SurvivalAI/SurvivalAI_SnippetAvoid.jpg" class="popup">
+                        <img src="../images/SurvivalAI/SurvivalAI_SnippetAvoid.jpg" alt="Survival AI Avoid Enemy Snippet" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        In this project I learned the basic implementation of an AI agent, such as the steering and behaviour tree pipelines. The blackboard template class was also a very interesting class that could be used in many other projects, it taught me more about templates and how they could be used. Before the actual game was made, I also researched how a navigation mesh works, as well as field of view.
+                    </p>
+                    <a href="../images/SurvivalAI/SurvivalAI_SnippetBlackboard.jpg" class="popup">
+                        <img src="../images/SurvivalAI/SurvivalAI_SnippetBlackboard.jpg" alt="Survival AI Blackboard Snippet" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +154,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +163,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -239,6 +271,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");

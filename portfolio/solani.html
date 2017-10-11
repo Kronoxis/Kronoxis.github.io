@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,14 +23,17 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
-    <link href="../css/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -111,18 +115,61 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <div class="header" style="background-image: url(../images/Solani/Header.jpg)"></div>
+            <div class="container" align="center">
+                <img class="header" src="../images/Solani/Header.jpg" alt="Solani Header" />
                 <h2>Solani</h2>
-                <p>
-                    Solani is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower you to use and control light.
-                    <br /> This game was created by a group of 5 people. Since only one of these 5 was an artist, the programmers had to help out the artist where needed. They helped with for example Level design and Particles.
-                    <br /> Being one of the Programmers of Solani, I was responsible for the Camera and the UI. Later on I helped out with the Enemies as well. As a team member, I tried to help out where I could, which included optimizing and improving code and other various bits such as fog.
-                    <br /> The build of this game is made for WebGL and can be played online. To have the best experience, I advise you to run your browser with a decent GPU, preferably in <i>Firefox 64 bit</i>.
-                </p>
-                <a href="../SolaniBuild/index.html">
-                    <button type="button">Play</button>
-                </a>
+                <div class="infosection">
+                    <h3>The Game</h3>
+                    <p>
+                        Solani is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower you to use and control light.
+                    </p>
+                    <p>
+                        The game was created for WebGL with support for keyboard/mouse and Xbox controller. It's a single player campaign, and can be played in your browser (button below). To have the best experience, I recommend running your browser with the best GPU you have, and preferably use <i>Mozilla Firefox's</i> 64 bit browser.
+                    </p>
+                    <a href="../SolaniBuild/index.html" role="button" target="_blank" class="abutton">
+                        Play
+                    </a>
+                    <a href="../images/Solani/Controls.jpg" class="popup">
+                        <img src="../images/Solani/Controls.jpg" alt="Solani Controls" />
+                    </a>
+                    <h3>The Development</h3>
+                    <p>
+                        For this project a team of randomly-selected game developers was selected. This game was developed in 2 months time, but was stretched over 5 months. Unity3D with C# scripts, combined with 3ds Max and Photoshop were the used software.
+                    </p>
+                    <p>
+                        Progress on this game was also posted on Solani's <a href="https://gameprojectsteam06.wordpress.com/">development blog</a>. However, since the server is offline, content such as builds and videos can no longer be viewed.
+                    </p>
+                    <h3>The Team</h3>
+                    <p>
+                        Solani was created by a group of 5 junior game developers. The team consisted of 4 programmers and 1 artist, although everyone has a good understanding of the entire workflow. To alleviate the workload of our artist, the developers helped out where they could, by for example designing the level and particles.
+                    </p>
+                    <h3>My Input</h3>
+                    <p>
+                        Being one of the programmers of Solani, I was responsible for the camera and the UI. Later on I helped out with the enemies as well. As a team member, I tried to help out where I could, which included optimizing and improving code and other various bits such as fog.
+                    </p>
+                    <a href="../images/Solani/UI_Settings.jpg" class="popup">
+                        <img src="../images/Solani/UI_Settings.jpg" alt="UI: Settings Menu" />
+                    </a>
+                    <a href="../images/Solani/CameraScript_Inspector.jpg" class="popup">
+                        <img src="../images/Solani/CameraScript_Inspector.jpg" alt="Camera Script Inspector" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        During this project I mainly learned how to work in a group. We split up the work and had weekly progress updates. We communicated on a daily basis, discussing features, work in progress posts and ideas. Working in a team taught me to be flexible and communicative.
+                    </p>
+                    <p>
+                        I also researched different types of cameras (such as smooth following camera with auto rotation or manual rotation, interpolated and instant movement, and so on). The camera developed along with the project, going through many iterations. To avoid breaking the immersion, I researched camera collision, and how to reduce jitter.
+                        <a href="../images/Solani/CameraScript_SnippetCollision.jpg" class="popup">
+                            <img src="../images/Solani/CameraScript_SnippetCollision.jpg" alt="Camera Script Snippet: Collision" />
+                        </a>
+                    </p>
+                    <p>
+                        Figuring out the aim direction was also coded by me, as the aim direction is viewed from the camera, but starts from the player. Using raycasting, the aim direction could be deduced.
+                        <a href="../images/Solani/CameraScript_SnippetAim.jpg" class="popup">
+                            <img src="../images/Solani/CameraScript_SnippetAim.jpg" alt="Camera Script Snippet: Aim" />
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -132,7 +179,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -141,7 +188,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -247,6 +296,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");

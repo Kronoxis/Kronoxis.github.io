@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,14 +23,17 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
-    <link href="../css/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -111,10 +115,75 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <p>
-                    Under Construction, use the navigation bar to go back.
-                </p>
+            <div class="container" align="center">
+                <img class="header" src="../images/NuclearLab/Header.jpg" alt="Nuclear Lab Header" />
+                <h2>Nuclear Lab</h2>
+                <div class="infosection">
+                    <h3>The Level</h3>
+                    <p>
+                        This Unreal Tournament level is themed around an abandoned nuclear lab, where a nuclear missile was developed and ready to be launched when requested. The level is designed for a 2 to 3 player free for all deathmatch. The many paths allow for various tactics and allow for fast-paced gameplay.
+                    </p>
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/201225783" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                    <h3>The Development</h3>
+                    <p>
+                        The design of this level started with a simple blockout. By getting the rough shape of the level in first, the overall flow of the gameplay could be determined and tweaked where necessary. After that, a modular kit of meshes was made, to fill the level with props, mainly hiding away sharp corners. Texturing these models was done by using one texture, and unwrapping the models accordingly. This allows for easy mesh texturing. In total, this level was created in about a month.
+                    </p>
+                    <h3>Features</h3>
+                    <p>
+                        Nuclear Lab has a few features that make the workflow of creating a level faster. One of the main time-saving features was the use of a modular kit to fill my level with props. Only a few meshes were created, but combining multiple meshes together created many unique possibilities.
+                    </p>
+                    <a href="../images/NuclearLab/ModularKit.jpg" class="popup">
+                        <img src="../images/NuclearLab/ModularKit.jpg" alt="Nuclear Lab Modular Kit" />
+                    </a>
+                    <p>
+                        The material shader I created was also saving me some time, as different materials were applied according to their normals. One mesh could have a face that acts as floor, and another face that acts as wall. To apply two textures to this mesh without having to select the faces seperately, the following material function was used.
+                    </p>
+                    <a href="../images/NuclearLab/TilesCombining.jpg" class="popup">
+                        <img src="../images/NuclearLab/TilesCombining.jpg" alt="Nuclear Lab Combining Two Materials" />
+                    </a>
+                    <p>
+                        Now that the walls, floors and ceilings have been seperated, I can create materials and drag them into the function. These materials are created from different layers, and by adding damage the layers below become visible through the top layer.
+                    </p>
+                    <a href="../images/NuclearLab/TilesLayers.jpg" class="popup">
+                        <img src="../images/NuclearLab/TilesLayers.jpg" alt="Nuclear Lab Layers" />
+                    </a>
+                    <a href="../images/NuclearLab/TilesDamage.jpg" class="popup">
+                        <img src="../images/NuclearLab/TilesDamage.jpg" alt="Nuclear Lab Damage" />
+                    </a>
+                    <p>
+                        Applying this material shader to a cube, creates the following result.
+                    </p>
+                    <a href="../images/NuclearLab/TilesResult.jpg" class="popup">
+                        <img src="../images/NuclearLab/TilesResult.jpg" alt="Nuclear Lab Tile Material Shader Result" />
+                    </a>
+                    <p>
+                        Another challenge I've given myself was to create a complex animated material using Unreal's functions. The material I created represents the energy and fluid being pumped into the missile.
+                    </p>
+                    <a href="../images/NuclearLab/ShaderEnergy.jpg" class="popup">
+                        <img src="../images/NuclearLab/ShaderEnergy.jpg" alt="Nuclear Lab Complex Shader Energy" />
+                    </a>
+                    <a href="../images/NuclearLab/ShaderFluid.jpg" class="popup">
+                        <img src="../images/NuclearLab/ShaderFluid.jpg" alt="Nuclear Lab Complex Shader Fluid" />
+                    </a>
+                    <p>
+                        The radioactive fluid and energy combined produce light. To match the color of my light to the fluid, I also created a quick blueprint script to add a light and give it the right color and intensity.
+                    </p>
+                    <a href="../images/NuclearLab/ShaderLight.jpg" class="popup">
+                        <img src="../images/NuclearLab/ShaderLight.jpg" alt="Nuclear Lab Complex Shader Light Blueprint" />
+                    </a>
+                    <p>
+                        Combining these gives the following result.
+                    </p>
+                    <a href="../images/NuclearLab/ShaderResult.jpg" class="popup">
+                        <img src="../images/NuclearLab/ShaderResult.jpg" alt="Nuclear Lab Complex Shader Result" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        As this was my first project in Unreal, I learned the basics of using Unreal's shaders, materials and blueprints. I also got some better understanding of how levels are designed and how the workflow can be sped up.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +193,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +202,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -239,6 +310,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");

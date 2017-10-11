@@ -6,17 +6,18 @@
 body {
   background-color: #EAEAEA;
   color: #1E1E20;
-  font: "Hind", sans-serif 300;
+  font-family: "Hind", sans-serif;
   font-size: 16px;
+  font-weight: 300;
   overflow-x: hidden; }
 
 h1 {
-  font: "Heebo", sans-serif 500;
+  font-family: "Jura", sans-serif;
   color: #F43D16;
   font-size: 10vh; }
 
 h2 {
-  font: "Heebo", sans-serif 400;
+  font-family: "Heebo", sans-serif;
   color: #C13F1C;
   font-size: 3vh;
   text-transform: uppercase;
@@ -33,16 +34,21 @@ h3 {
   border-color: #151515;
   border-width: 0px 0px 2px 0px;
   font-size: 28px;
-  line-height: 50px; }
+  line-height: 50px;
+  font-weight: 400; }
 
 p {
-  font: "Hind", sans-serif 300;
+  font-family: "Hind", sans-serif;
   font-size: 18px; }
+
+p b {
+  font-weight: 500; }
 
 a {
   text-decoration: none;
   color: #A11F00;
-  font-style: italic; }
+  font-style: italic;
+  outline: none; }
 
 a:hover {
   text-decoration: none;
@@ -59,6 +65,23 @@ button {
   border-radius: 5px; }
 
 button:hover {
+  border-radius: 0px; }
+
+.abutton {
+  font-style: normal;
+  border: none;
+  outline: none;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #151515;
+  color: #EAEAEA;
+  margin: 5px;
+  padding: 5px 10px; }
+
+.abutton:hover {
   border-radius: 0px; }
 
 /* Navigation */
@@ -164,7 +187,8 @@ button:hover {
 
 .navbar button:hover {
   color: #F43D16;
-  border-style: solid; }
+  border-style: solid;
+  cursor: pointer; }
 
 /* Sections */
 .section .container {
@@ -215,7 +239,7 @@ button:hover {
 #portfolio .item .title {
   display: inline-block;
   font-size: 20px;
-  font: "Heebo", sans-serif 500;
+  font-family: "Jura", sans-serif;
   font-weight: bolder;
   text-transform: none;
   color: #1E1E20;
@@ -263,21 +287,22 @@ button:hover {
   padding: 0px 10px;
   text-align: left; }
 
-#about button {
+#about .abutton {
   display: block;
-  position: relative;
   width: 95%;
   max-width: 250px;
-  min-width: 50px; }
+  min-width: 50px;
+  height: 40px;
+  padding-top: 8px; }
 
 /* Skills Section */
 #skills .item {
   background-color: #EAEAEA;
   width: 150px;
   display: inline-block;
-  font: "Hind", sans-serif 300;
+  font-family: "Hind", sans-serif;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
   text-align: center;
   border-style: solid;
@@ -301,6 +326,9 @@ button:hover {
   width: 100px;
   display: block;
   margin: 25px; }
+
+#skills .lang {
+  font-weight: bold; }
 
 /* Contact Section */
 #contact .col {
@@ -326,14 +354,12 @@ button:hover {
   min-height: 90vh; }
 
 #workinfo .header {
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat; }
+  max-width: 100%; }
 
 #workinfo h2 {
   display: inline-block;
   font-size: 40px;
-  font: "Heebo", sans-serif 500;
+  font-family: "Jura", sans-serif;
   font-weight: bolder;
   text-transform: none;
   color: #C13F1C;
@@ -342,6 +368,38 @@ button:hover {
   border-color: #151515;
   border-width: 0px 0px 1px 0px;
   margin-bottom: 5px; }
+
+#workinfo .infosection {
+  margin: 0vw 6vw; }
+
+#workinfo h3 {
+  text-align: left; }
+
+#workinfo p {
+  text-align: left;
+  margin: 0px 1vw 10px 1vw; }
+
+#workinfo img {
+  display: inline-block;
+  padding: 10px;
+  max-width: 90%; }
+
+#workinfo .abutton {
+  display: block;
+  max-width: 150px; }
+
+#workinfo .videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0; }
+
+#workinfo iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 /* Footer */
 #footer {

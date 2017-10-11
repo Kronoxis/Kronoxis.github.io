@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,14 +23,17 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
-    <link href="../css/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -111,10 +115,36 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <p>
-                    Under Construction, use the navigation bar to go back.
-                </p>
+            <div class="container" align="center">
+                <img class="header" src="../images/MarbleRace/Header.jpg" alt="Marble Race Header" />
+                <h2>Marble Race</h2>
+                <div class="infosection">
+                    <h3>The Game</h3>
+                    <p>
+                        Marble Race is a giveaway system designed for <a href="www.twitch.tv" target="_blank">Twitch</a> streamers. By having marbles bounce their way through an obstacle filled level, it makes giveaways more entertaining and tense for the viewers.
+                    </p>
+                    <p>
+                        The project is available for download on <a href="https://github.com/Kronoxis/MarbleRace/tree/Release-Build">GitHub</a>, however it requires a Twitch bot (made by <i>Mstiekema</i> to work on Twitch. The source code is also available on the master branch of this GitHub repository.
+                    </p>
+                    <h3>The Development</h3>
+                    <p>
+                        Developing this game was my first Unity side project, which I used to learn more about Unity. During the first iteration I created a rough working system, which needed clean up and genericity later on. The first iteration was created in about 2 full weeks, the second iteration took me about a week.
+                    </p>
+                    <h3>Features</h3>
+                    <p>
+                        Marble Race supports the creation of marbles at runtime by reading data from a predefined website, including textures downloaded from either local files or Twitch itself. It also includes a leaderboard to keep track of which marble is in first position. User-specific settings are also saved locally in AppData, keeping settings synced between different version of the application.
+                    </p>
+                    <a href="../images/MarbleRace/Settings.jpg" class="popup">
+                        <img src="../images/MarbleRace/Settings.jpg" alt="Marble Race Settings" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        As downloading from a webpage was necessary, I had to research how to access webpages from Unity. I also learned more about WebRequests and interacting with a webpage from within Unity. I had to figure out parsing in C#, as I had never done that before. Other than that, I also learned more about how leaderboards work using checkpoints.
+                    </p>
+                    <a href="../images/MarbleRace/MarbleRace_Snippet.jpg" class="popup">
+                        <img src="../images/MarbleRace/MarbleRace_Snippet.jpg" alt="Marble Race Texture Creation Snippet">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +154,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +163,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -239,6 +271,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");

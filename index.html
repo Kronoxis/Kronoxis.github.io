@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,8 +23,9 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
@@ -61,7 +63,6 @@
                 </div>
 
                 <h2>Versatile developer with an extra bit of passion for Programming</h2>
-
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
@@ -113,7 +114,7 @@
         <div id="portfolio" class="sectionborder">
             <div class="container" align="center">
                 <!-- Title -->
-                <h2>My Work</h2>
+                <h2>My work</h2>
 
                 <h3>Coding Projects</h3>
 
@@ -206,7 +207,7 @@
                     </div>
                     <div class="desc">
                         <div class="tags">Low Poly</div>
-                        Realistic model of MTech USA's Survivalist Axe.
+                        Realistic model of MTech USA's Adventurer's Axe.
                     </div>
                 </div>
 
@@ -239,7 +240,7 @@
                 <div class="item RazerOuroboros" align="left">
                     <div class="title">Razer Ouroboros</div>
                     <div class="image">
-                        <a href="portfolio/solani.html">
+                        <a href="portfolio/razerouroboros.html">
                             <img src="images/RazerOuroboros/Header.jpg" alt="Razer Ouroboros Mouse" />
                         </a>
                     </div>
@@ -270,7 +271,7 @@
                             I flourish in small to medium groups of passionate game developers. As part of my team, I like to support and help my co-workers, however, I'm not afraid to suggest my own idea, or to enter into discussion about topics I have a good understanding of.
                         </p>
                         <p>
-                            I'm currently <b>looking for an end of studies game development internship starting from February 12, 2018</b> and must last for at least 18 full weeks.
+                            I'm currently <b>looking for an end of studies game development internship starting from February 12, 2018</b> for at least 18 full weeks.
                         </p>
                         <p>
                             If you'd like to know more about me, feel free to get in touch with me!
@@ -279,10 +280,8 @@
                     <!-- Column 2: Image -->
                     <div class="col-md-3">
                         <img src="images/me.jpg" alt="Quinten Wuyts" />
-                        <a href="resume_WuytsQuinten.pdf" target="_blank">
-                            <button type="button">
-                                Resume
-                            </button>
+                        <a href="resume_WuytsQuinten.pdf" role="button" target="_blank" class="abutton">
+                            Resume
                         </a>
                     </div>
                 </div>
@@ -318,25 +317,25 @@
                 </div>
                 <h3>Languages</h3>
                 <div class="item">
-                    Dutch
-                    <br /> Native
+                    <div class="lang">Dutch</div>
+                    Native
                 </div>
                 <div class="item">
-                    English
-                    <br /> Fluent
+                    <div class="lang">English</div>
+                    Fluent
                 </div>
 
                 <div class="item">
-                    C++
-                    <br /> Fluent
+                    <div class="lang">C++</div>
+                    Fluent
                 </div>
                 <div class="item">
-                    C#
-                    <br /> Fluent
+                    <div class="lang">C#</div>
+                    Fluent
                 </div>
                 <div class="item">
-                    HLSL
-                    <br /> Fair
+                    <div class="lang">HLSL</div>
+                    Fair
                 </div>
             </div>
         </div>
@@ -414,6 +413,19 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
+        async function smoothScroll(id) {
+            var hash = document.getElementById(id);
+
+            // Make sure scroll position is below the bottom of the navbar
+            var elemTop = parseFloat($(hash).offset().top);
+            var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+            var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+            // Using jQuery's animate() method to add smooth page scroll
+            $("html, body").animate({
+                scrollTop: scrollHeight
+            }, 800, function () {});
+        }
+
         // Start running functions when document is ready
         $(document).ready(function () {
             // ***
@@ -469,8 +481,6 @@
 
                                 // Add Left and Right where necessary
                                 for (var i = 1; i < items.length; ++i) {
-                                    console.log(items[i]);
-                                    console.log("Y: " + items[i].getBoundingClientRect().top);
                                     if (items[i - 1].getBoundingClientRect().top != items[i].getBoundingClientRect().top) {
                                         items[i - 1].classList.add("right");
                                         items[i].classList.add("left");
@@ -545,8 +555,11 @@
             // Remove # from url
             // ***
             var indexOfHash = window.location.href.indexOf("#");
-            if (indexOfHash != -1)
-                window.location.href = window.location.href.substr(0, indexOfHash);
+            if (indexOfHash != -1) {
+                var id = window.location.href.substr(indexOfHash + 1);
+                window.history.pushState(null, '', 'index.html');
+                smoothScroll(id);
+            }
 
             // Top Section Height
             var header = document.getElementById("top");
@@ -590,8 +603,6 @@
 
             // Add Left and Right where necessary
             for (var i = 1; i < items.length; ++i) {
-                console.log(items[i]);
-                console.log("Y: " + items[i].getBoundingClientRect().top);
                 if (items[i - 1].getBoundingClientRect().top != items[i].getBoundingClientRect().top) {
                     items[i - 1].classList.add("right");
                     items[i].classList.add("left");

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ---------------------------------------------- -->
-<!-- © Kronoxis 2017, all rights reserved           -->
-<!-- All code below has been written by Kronoxis    -->
-<!-- Icons by Iconmonstr (iconmonstr.com)           -->
-<!-- Responsive CSS by Bootstrap (getbootstrap.com) -->
-<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------- -->
+<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- -------------------All code below has been written by Kronoxis ------------------- -->
+<!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
+<!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
+<!-- Mobile-friendly image viewer by dimsemenov (dimsemenov.com/plugins/magnific-popup) -->
+<!-- ---------------------------------------------------------------------------------- -->
 
 <head>
     <!-- Title -->
@@ -22,14 +23,17 @@
     <meta name="keywords" content="portfolio game developer programming c++ c#">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,500" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:600" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500" type="text/css" rel="stylesheet" />
 
     <!-- CSS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../css/MagnificPopup.css" type="text/css" />
     <!-- Custom -->
-    <link href="../css/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -111,10 +115,32 @@
 
         <!-- Workinfo Section -->
         <div id="workinfo">
-            <div class="container">
-                <p>
-                    Under Construction, use the navigation bar to go back.
-                </p>
+            <div class="container" align="center">
+                <img class="header" src="../images/250GTO/Header.jpg" alt="Ferrari 250 GTO Header" />
+                <h2>Ferrari 250 GTO</h2>
+                <div class="infosection">
+                    <h3>The Asset</h3>
+                    <p>
+                        The Ferrari 250 GTO, known to be the most expensive car, was built in 1962`and produced about 300 horsepower. There were only 39 cars produced. This model was designed for a product show-off or commercial.
+                    </p>
+                    <h3>The Development</h3>
+                    <p>
+                        This model is made entirely in 3ds Max from scratch. It is a high-poly model, and all textures were applied procedurally using the material editor in 3ds Max. Renders were made using Nvidia Mental Ray. The ambient occlusion was also added for some better mesh definition. A vintage filter was added afterwards in Photoshop.
+                    </p>
+                    <a href="../images/250GTO/Color.jpg" class="popup-gallery">
+                        <img src="../images/250GTO/Color.jpg" alt="Ferrar 250 GTO Color Render" style="width: 30%; padding-left: 0px; padding-right; 0px" />
+                    </a>
+                    <a href="../images/250GTO/Wireframe.jpg" class="popup-gallery">
+                        <img src="../images/250GTO/Wireframe.jpg" alt="Ferrar 250 GTO Wireframe" style="width: 30%; padding-left: 0px; padding-right; 0px" />
+                    </a>
+                    <a href="../images/250GTO/AO.jpg" class="popup-gallery">
+                        <img src="../images/250GTO/AO.jpg" alt="Ferrar 250 GTO Ambient Occlusion" style="width: 30%; padding-left: 0px; padding-right; 0px" />
+                    </a>
+                    <h3>Acquired Skills</h3>
+                    <p>
+                        I learned a lot about high-poly modeling by making this car, such as the workflow of using blueprints as references and modeling specifically to work with the turbosmooth modifier. I also found out how to create procedural materials in 3ds Max, and how to apply stickers onto a mesh.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -124,7 +150,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
                 </div>
             </div>
         </div>
@@ -133,7 +159,9 @@
     <!-- Javascripts -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Magnific Popup -->
+    <script src="../js/MagnificPopup.js"></script>
+    <!-- Custom JS -->
     <script>
         // Secure JS
         "use strict";
@@ -239,6 +267,46 @@
             var indexOfHash = window.location.href.indexOf("#");
             if (indexOfHash != -1)
                 window.location.href = window.location.href.substr(0, indexOfHash);
+
+            // ***
+            // Magnific Popup 
+            // ***
+            $(".popup").magnificPopup({
+                type: "image",
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: false
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $(".popup-gallery").magnificPopup({
+                type: "image",
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                image: {
+                    verticalFit: true
+                },
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
 
             // Top Section Height
             var header = document.getElementById("top");
