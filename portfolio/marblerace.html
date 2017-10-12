@@ -69,38 +69,38 @@
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
-                    <a href="../index.html#portfolio">
-                        <button type="button">Portfolio</button>
+                    <a href="../index.html">
+                        <button type="button">Home</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#about">
+                    <a href="#intro">
+                        <button type="button">Intro</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#about">
                         <button type="button">About</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#skills">
+                    <a href="#role">
+                        <button type="button">My Role</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#skills">
                         <button type="button">Skills</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
-                        <button type="button">Resume</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../index.html#contact">
-                        <button type="button">Contact</button>
                     </a>
                 </div>
                 <div class="mobileonly">
                     <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
                     <div id="dd-menu" class="dd-content">
-                        <a href="../index.html#portfolio">Portfolio</a>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#skills">Skills</a>
-                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <a href="../index.html">Home</a>
+                        <a href="#intro">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#role">My Role</a>
+                        <a href="#skills">Skills</a>
                     </div>
                 </div>
             </div>
@@ -119,25 +119,37 @@
                 <img class="header" src="../images/MarbleRace/Header.jpg" alt="Marble Race Header" />
                 <h2>Marble Race</h2>
                 <div class="infosection">
-                    <h3>The Game</h3>
+                    <h3 id="intro">The Game</h3>
                     <p>
                         Marble Race is a giveaway system designed for <a href="www.twitch.tv" target="_blank">Twitch</a> streamers. By having marbles bounce their way through an obstacle filled level, it makes giveaways more entertaining and tense for the viewers.
                     </p>
                     <p>
                         The project is available for download on <a href="https://github.com/Kronoxis/MarbleRace/tree/Release-Build">GitHub</a>, however it requires a Twitch bot (made by <i>Mstiekema</i> to work on Twitch. The source code is also available on the master branch of this GitHub repository.
                     </p>
-                    <h3>The Development</h3>
+                    <p>
+                        The clip below is a preview of the game in action during the streamer who originally came up with the idea (<a href="https://www.twitch.tv/pixelsrealm" target="_blank">PixelsRealm</a>).
+                    </p>
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/237991297" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                    <h3 id="about">The Development</h3>
                     <p>
                         Developing this game was my first Unity side project, which I used to learn more about Unity. During the first iteration I created a rough working system, which needed clean up and genericity later on. The first iteration was created in about 2 full weeks, the second iteration took me about a week.
                     </p>
-                    <h3>Features</h3>
                     <p>
                         Marble Race supports the creation of marbles at runtime by reading data from a predefined website, including textures downloaded from either local files or Twitch itself. It also includes a leaderboard to keep track of which marble is in first position. User-specific settings are also saved locally in AppData, keeping settings synced between different version of the application.
                     </p>
                     <a href="../images/MarbleRace/Settings.jpg" class="popup">
                         <img src="../images/MarbleRace/Settings.jpg" alt="Marble Race Settings" />
                     </a>
-                    <h3>Acquired Skills</h3>
+                    <p>
+                        To interact with the Twitch chat and API, a custom chat bot with support for commands was written. This bot allows the users to type a simple command to join a giveaway. Their names will be written to a specified page, which can then be loaded by the Marble Race application. To get the profile picture of a joined user (which will be used as texture for the marble), the bot also translates a name into a link of that user's picture, using the Twitch API.
+                    </p>
+                    <h3 id="role">My Role</h3>
+                    <p>
+                        My role as Game Developer was to create the entire Unity app. This includes the scripts, as well as the level design and UI. To design the levels easily, a modular kit was created in 3ds Max.
+                    </p>
+                    <h3 id="skills">Acquired Skills</h3>
                     <p>
                         As downloading from a webpage was necessary, I had to research how to access webpages from Unity. I also learned more about WebRequests and interacting with a webpage from within Unity. I had to figure out parsing in C#, as I had never done that before. Other than that, I also learned more about how leaderboards work using checkpoints.
                     </p>
@@ -256,6 +268,31 @@
                     $(document.getElementById("dd-menu")).css("display", "none");
                 }
             }
+
+            // ***
+            // Smooth Scroll on Click on a element with hash in href
+            // ***
+            $("a").click(async function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    await sleep(10);
+
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $("html, body").animate({
+                        scrollTop: scrollHeight
+                    }, 800, function () {});
+                }
+            });
 
             // ***
             // Set Year

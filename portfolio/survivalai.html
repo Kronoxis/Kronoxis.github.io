@@ -69,38 +69,32 @@
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
-                    <a href="../index.html#portfolio">
-                        <button type="button">Portfolio</button>
+                    <a href="../index.html">
+                        <button type="button">Home</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#about">
+                    <a href="#intro">
+                        <button type="button">Intro</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#about">
                         <button type="button">About</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#skills">
+                    <a href="#skills">
                         <button type="button">Skills</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
-                        <button type="button">Resume</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../index.html#contact">
-                        <button type="button">Contact</button>
                     </a>
                 </div>
                 <div class="mobileonly">
                     <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
                     <div id="dd-menu" class="dd-content">
-                        <a href="../index.html#portfolio">Portfolio</a>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#skills">Skills</a>
-                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <a href="../index.html">Home</a>
+                        <a href="#intro">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
                     </div>
                 </div>
             </div>
@@ -119,25 +113,24 @@
                 <img class="header" src="../images/SurvivalAI/Header.jpg" alt="Survival AI Header" />
                 <h2>Survival AI</h2>
                 <div class="infosection">
-                    <h3>The AI</h3>
+                    <h3 id="intro">The AI</h3>
                     <p>
                         Thrown into an unknown world, filled with endless amount of zombies, this AI agent tries his best to survive as long as possible. The agent has no information about the world, other than what it can see in its field of view. To survive, it must replenish its energy by eating food and minimize taking damage by killing or avoiding enemies.
                     </p>
                     <div class="videoWrapper">
                         <iframe src="https://player.vimeo.com/video/237696926" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
-                    <h3>The Development</h3>
+                    <h3 id="about">The Development</h3>
                     <p>
                         The environment for this AI was built in a custom C++ engine. I had no access to the source code of this framework, the only information that could be requested was information about the agent, such as its health, energy and inventory, and what was inside its field of view. The AI logic was written in about a week.
                     </p>
-                    <h3>Features</h3>
                     <p>
                         This agent covers the basic features of an AI entity. It has a behaviour tree for decision making, a searching algorithm to scavenge houses, and steering behaviours. The behaviour tree uses blackboards to store and manage data of any type. The steering pipeline exists of a fixed goal targeter, a nav mesh decomposer, an avoid enemy constraint and a basic seek actuator.
                     </p>
                     <a href="../images/SurvivalAI/SurvivalAI_SnippetAvoid.jpg" class="popup">
                         <img src="../images/SurvivalAI/SurvivalAI_SnippetAvoid.jpg" alt="Survival AI Avoid Enemy Snippet" />
                     </a>
-                    <h3>Acquired Skills</h3>
+                    <h3 id="skills">Acquired Skills</h3>
                     <p>
                         In this project I learned the basic implementation of an AI agent, such as the steering and behaviour tree pipelines. The blackboard template class was also a very interesting class that could be used in many other projects, it taught me more about templates and how they could be used. Before the actual game was made, I also researched how a navigation mesh works, as well as field of view.
                     </p>
@@ -256,6 +249,31 @@
                     $(document.getElementById("dd-menu")).css("display", "none");
                 }
             }
+
+            // ***
+            // Smooth Scroll on Click on a element with hash in href
+            // ***
+            $("a").click(async function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    await sleep(10);
+
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $("html, body").animate({
+                        scrollTop: scrollHeight
+                    }, 800, function () {});
+                }
+            });
 
             // ***
             // Set Year

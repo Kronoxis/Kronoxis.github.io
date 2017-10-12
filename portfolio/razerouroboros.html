@@ -69,38 +69,32 @@
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
-                    <a href="../index.html#portfolio">
-                        <button type="button">Portfolio</button>
+                    <a href="../index.html">
+                        <button type="button">Home</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#about">
+                    <a href="#intro">
+                        <button type="button">Intro</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#about">
                         <button type="button">About</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#skills">
+                    <a href="#skills">
                         <button type="button">Skills</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
-                        <button type="button">Resume</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../index.html#contact">
-                        <button type="button">Contact</button>
                     </a>
                 </div>
                 <div class="mobileonly">
                     <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
                     <div id="dd-menu" class="dd-content">
-                        <a href="../index.html#portfolio">Portfolio</a>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#skills">Skills</a>
-                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <a href="../index.html">Home</a>
+                        <a href="#intro">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
                     </div>
                 </div>
             </div>
@@ -119,11 +113,11 @@
                 <img class="header" src="../images/RazerOuroboros/Header.jpg" alt="Razer Ouroboros Header" />
                 <h2>Razer Ouroboros</h2>
                 <div class="infosection">
-                    <h3>The Asset</h3>
+                    <h3 id="intro">The Asset</h3>
                     <p>
                         The Razer Ourobors is a high-end gaming mouse, designed to be customizable and fit for every type of hand. Being high-poly only, it was made for product show-off or commercial purposes.
                     </p>
-                    <h3>The Development</h3>
+                    <h3 id="about">The Development</h3>
                     <p>
                         This model was my first high-poly model. It is made entirely in 3ds Max from scratch. All textures were applied procedurally using the material editor in 3ds Max. Renders were made using Nvidia Mental Ray. It took me 1 week to complete it.
                     </p>
@@ -133,7 +127,7 @@
                     <a href="../images/RazerOuroboros/Wireframe.jpg" class="popup-gallery">
                         <img src="../images/RazerOuroboros/Wireframe.jpg" alt="Razer Ouroboros Wireframe" style="width: 45%; padding-left: 0px; padding-right; 0px" />
                     </a>
-                    <h3>Acquired Skills</h3>
+                    <h3 id="skills">Acquired Skills</h3>
                     <p>
                         I learned a lot about high-poly modeling by making this mouse, such as the workflow of using blueprints as references and modeling specifically to work with the turbosmooth modifier. I also found out how to create procedural materials in 3ds Max, and how to create post-processing effects to create the bloom coming from the lights.
                     </p>
@@ -249,6 +243,31 @@
                     $(document.getElementById("dd-menu")).css("display", "none");
                 }
             }
+            
+            // ***
+            // Smooth Scroll on Click on a element with hash in href
+            // ***
+            $("a").click(async function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    await sleep(10);
+
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $("html, body").animate({
+                        scrollTop: scrollHeight
+                    }, 800, function () {});
+                }
+            });
 
             // ***
             // Set Year

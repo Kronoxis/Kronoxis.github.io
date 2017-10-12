@@ -69,38 +69,32 @@
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
-                    <a href="../index.html#portfolio">
-                        <button type="button">Portfolio</button>
+                    <a href="../index.html">
+                        <button type="button">Home</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#about">
+                    <a href="#intro">
+                        <button type="button">Intro</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#about">
                         <button type="button">About</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#skills">
+                    <a href="#skills">
                         <button type="button">Skills</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
-                        <button type="button">Resume</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../index.html#contact">
-                        <button type="button">Contact</button>
                     </a>
                 </div>
                 <div class="mobileonly">
                     <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
                     <div id="dd-menu" class="dd-content">
-                        <a href="../index.html#portfolio">Portfolio</a>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#skills">Skills</a>
-                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <a href="../index.html">Home</a>
+                        <a href="#intro">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +113,7 @@
                 <img class="header" src="../images/SpiderMech/Header.jpg" alt="Spider Mech Header" />
                 <h2>Spider Mech Rig</h2>
                 <div class="infosection">
-                    <h3>The Asset</h3>
+                    <h3 id="intro">The Asset</h3>
                     <p>
                         For the spider mech (modeled by <a href="https://www.turbosquid.com/3d-models/spider-mech-mecha-3d-model/243522" target="_blank">Shiva3d on TurboSquid</a>), I've created a rig to make it an animation-ready asset. The rig has easy-to-use controls for each part of the model, such as the legs, the wings, the fangs and the direction of the lower body. The piston-like connections between the legs automatically adjust when positioning the leg. As animator, you have a choice of using forward kinematics or inverse kinematics, or you can even blend between the two. The wings have automated and adjustable noise, as well as a controller to open or close them. When closed, they're neatly folded away below its elytra.
                     </p>
@@ -129,14 +123,14 @@
                     <a href="../images/{T}/{T}.jpg" class="popup">
                         <img src="../images/{T}/{T}.jpg" alt="{T}" />
                     </a>
-                    <h3>The Development</h3>
+                    <h3 id="about">The Development</h3>
                     <p>
                         This rig has been made in 3ds Max in 1 week. Using bones, helpers and MAXScript, I was able to customize the controllers to have logical contstraints, without limiting the animator too much. Each controller is customizable, such as the amount of noise in the wings, or the use of inverse or forward kinematics per leg.
                     </p>
                     <a href="../images/SpiderMech/ReferenceBoard.jpg" class="popup">
                         <img src="../images/SpiderMech/ReferenceBoard.jpg" alt="Spider Mech Technical Reference Board" />
                     </a>
-                    <h3>Acquired Skills</h3>
+                    <h3 id="skills">Acquired Skills</h3>
                     <p>
                         As this is my first rig, I learned a lot about how bones interact with each other, as well as how to create a rig for a somewhat complex model. The model is also skinned, but most of it is hard skinning. Besides that, I now understand constraints better, and know how to add custom attributes to a controller.
                     </p>
@@ -252,6 +246,31 @@
                     $(document.getElementById("dd-menu")).css("display", "none");
                 }
             }
+            
+            // ***
+            // Smooth Scroll on Click on a element with hash in href
+            // ***
+            $("a").click(async function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    await sleep(10);
+
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $("html, body").animate({
+                        scrollTop: scrollHeight
+                    }, 800, function () {});
+                }
+            });
 
             // ***
             // Set Year

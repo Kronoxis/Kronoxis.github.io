@@ -69,38 +69,38 @@
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
-                    <a href="../index.html#portfolio">
-                        <button type="button">Portfolio</button>
+                    <a href="../index.html">
+                        <button type="button">Home</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#about">
+                    <a href="#intro">
+                        <button type="button">Intro</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#about">
                         <button type="button">About</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#skills">
+                    <a href="#role">
+                        <button type="button">My Role</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#skills">
                         <button type="button">Skills</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
-                        <button type="button">Resume</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../index.html#contact">
-                        <button type="button">Contact</button>
                     </a>
                 </div>
                 <div class="mobileonly">
                     <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
                     <div id="dd-menu" class="dd-content">
-                        <a href="../index.html#portfolio">Portfolio</a>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#skills">Skills</a>
-                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <a href="../index.html">Home</a>
+                        <a href="#intro">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#role">My Role</a>
+                        <a href="#skills">Skills</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                 <img class="header" src="../images/Solani/Header.jpg" alt="Solani Header" />
                 <h2>Solani</h2>
                 <div class="infosection">
-                    <h3>The Game</h3>
+                    <h3 id="intro">The Game</h3>
                     <p>
                         Solani is an atmospheric adventure and exploration game. With light being your only source of guidance, you're slowly guided through an unknown realm. As you progress through the game, you will gain access to magical powers that empower you to use and control light.
                     </p>
@@ -129,21 +129,20 @@
                     <a href="../SolaniBuild/index.html" role="button" target="_blank" class="abutton">
                         Play
                     </a>
-                    <a href="../images/Solani/Controls.jpg" class="popup">
-                        <img src="../images/Solani/Controls.jpg" alt="Solani Controls" />
-                    </a>
-                    <h3>The Development</h3>
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/237988186" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                    <h3 id="about">The Development</h3>
                     <p>
                         For this project a team of randomly-selected game developers was selected. This game was developed in 2 months time, but was stretched over 5 months. Unity3D with C# scripts, combined with 3ds Max and Photoshop were the used software.
                     </p>
                     <p>
                         Progress on this game was also posted on Solani's <a href="https://gameprojectsteam06.wordpress.com/">development blog</a>. However, since the server is offline, content such as builds and videos can no longer be viewed.
                     </p>
-                    <h3>The Team</h3>
                     <p>
                         Solani was created by a group of 5 junior game developers. The team consisted of 4 programmers and 1 artist, although everyone has a good understanding of the entire workflow. To alleviate the workload of our artist, the developers helped out where they could, by for example designing the level and particles.
                     </p>
-                    <h3>My Input</h3>
+                    <h3 id="role">My Role</h3>
                     <p>
                         Being one of the programmers of Solani, I was responsible for the camera and the UI. Later on I helped out with the enemies as well. As a team member, I tried to help out where I could, which included optimizing and improving code and other various bits such as fog.
                     </p>
@@ -153,7 +152,7 @@
                     <a href="../images/Solani/CameraScript_Inspector.jpg" class="popup">
                         <img src="../images/Solani/CameraScript_Inspector.jpg" alt="Camera Script Inspector" />
                     </a>
-                    <h3>Acquired Skills</h3>
+                    <h3 id="skills">Acquired Skills</h3>
                     <p>
                         During this project I mainly learned how to work in a group. We split up the work and had weekly progress updates. We communicated on a daily basis, discussing features, work in progress posts and ideas. Working in a team taught me to be flexible and communicative.
                     </p>
@@ -281,6 +280,31 @@
                     $(document.getElementById("dd-menu")).css("display", "none");
                 }
             }
+
+            // ***
+            // Smooth Scroll on Click on a element with hash in href
+            // ***
+            $("a").click(async function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    await sleep(10);
+
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $("html, body").animate({
+                        scrollTop: scrollHeight
+                    }, 800, function () {});
+                }
+            });
 
             // ***
             // Set Year

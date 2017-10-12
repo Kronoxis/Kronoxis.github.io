@@ -69,38 +69,32 @@
             </div>
             <div id="navmenu" align="right">
                 <div class="pconly">
-                    <a href="../index.html#portfolio">
-                        <button type="button">Portfolio</button>
+                    <a href="../index.html">
+                        <button type="button">Home</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#about">
+                    <a href="#intro">
+                        <button type="button">Intro</button>
+                    </a>
+                </div>
+                <div class="pconly">
+                    <a href="#about">
                         <button type="button">About</button>
                     </a>
                 </div>
                 <div class="pconly">
-                    <a href="../index.html#skills">
+                    <a href="#skills">
                         <button type="button">Skills</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../resume_WuytsQuinten.pdf" target="_blank">
-                        <button type="button">Resume</button>
-                    </a>
-                </div>
-                <div class="pconly">
-                    <a href="../index.html#contact">
-                        <button type="button">Contact</button>
                     </a>
                 </div>
                 <div class="mobileonly">
                     <img src="../images/menu.png" alt="Menu" onclick="dropdown()" class="dd-button" />
                     <div id="dd-menu" class="dd-content">
-                        <a href="../index.html#portfolio">Portfolio</a>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#skills">Skills</a>
-                        <a href="../resume_WuytsQuinten.pdf" target="_blank">Resume</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <a href="../index.html">Home</a>
+                        <a href="#intro">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
                     </div>
                 </div>
             </div>
@@ -119,18 +113,17 @@
                 <img class="header" src="../images/NuclearLab/Header.jpg" alt="Nuclear Lab Header" />
                 <h2>Nuclear Lab</h2>
                 <div class="infosection">
-                    <h3>The Level</h3>
+                    <h3 id="intro">The Level</h3>
                     <p>
                         This Unreal Tournament level is themed around an abandoned nuclear lab, where a nuclear missile was developed and ready to be launched when requested. The level is designed for a 2 to 3 player free for all deathmatch. The many paths allow for various tactics and allow for fast-paced gameplay.
                     </p>
                     <div class="videoWrapper">
                         <iframe src="https://player.vimeo.com/video/201225783" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
-                    <h3>The Development</h3>
+                    <h3 id="about">The Development</h3>
                     <p>
                         The design of this level started with a simple blockout. By getting the rough shape of the level in first, the overall flow of the gameplay could be determined and tweaked where necessary. After that, a modular kit of meshes was made, to fill the level with props, mainly hiding away sharp corners. Texturing these models was done by using one texture, and unwrapping the models accordingly. This allows for easy mesh texturing. In total, this level was created in about a month.
                     </p>
-                    <h3>Features</h3>
                     <p>
                         Nuclear Lab has a few features that make the workflow of creating a level faster. One of the main time-saving features was the use of a modular kit to fill my level with props. Only a few meshes were created, but combining multiple meshes together created many unique possibilities.
                     </p>
@@ -179,7 +172,7 @@
                     <a href="../images/NuclearLab/ShaderResult.jpg" class="popup">
                         <img src="../images/NuclearLab/ShaderResult.jpg" alt="Nuclear Lab Complex Shader Result" />
                     </a>
-                    <h3>Acquired Skills</h3>
+                    <h3 id="skills">Acquired Skills</h3>
                     <p>
                         As this was my first project in Unreal, I learned the basics of using Unreal's shaders, materials and blueprints. I also got some better understanding of how levels are designed and how the workflow can be sped up.
                     </p>
@@ -295,6 +288,31 @@
                     $(document.getElementById("dd-menu")).css("display", "none");
                 }
             }
+            
+            // ***
+            // Smooth Scroll on Click on a element with hash in href
+            // ***
+            $("a").click(async function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    await sleep(10);
+
+                    // Make sure scroll position is below the bottom of the navbar
+                    var elemTop = parseFloat($(hash).offset().top);
+                    var navbarOffset = parseFloat(document.getElementById("navbar").getBoundingClientRect().bottom);
+                    var scrollHeight = (elemTop - navbarOffset).toString() + "px";
+                    // Using jQuery's animate() method to add smooth page scroll
+                    $("html, body").animate({
+                        scrollTop: scrollHeight
+                    }, 800, function () {});
+                }
+            });
 
             // ***
             // Set Year
