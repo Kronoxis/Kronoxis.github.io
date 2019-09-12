@@ -1,1 +1,56 @@
-# Keybase verification
+==================================================================
+https://keybase.io/quintenwuyts
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://kronoxis.com
+  * I am quintenwuyts (https://keybase.io/quintenwuyts) on keybase.
+  * I have a public key ASCeotym28pg78IGwMg7cWCoB9TJ_7EXs-8ej4oC4GgiWAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012036e9cd827d54048936e22fc6294dc387e09c5595417bc8ac377f48ab50302a9f0a",
+      "host": "keybase.io",
+      "kid": "01209ea2dca6dbca60efc206c0c83b7160a807d4c9ffb117b3ef1e8f8a02e06822580a",
+      "uid": "a33d8fc30e0ee0929c1b4725713eda19",
+      "username": "quintenwuyts"
+    },
+    "merkle_root": {
+      "ctime": 1568290141,
+      "hash": "01443a3063fe17c42c1f640b7b6ae4037337fb8b8853ed277684b6669dc7cc4b80db25209617019661f0aeb55e4248687d5eebc31c30fae203afdd6302950d7a",
+      "hash_meta": "e5413196939aad08c8dbe6838276bf37aaa372d8f979522c959fed8064bc0621",
+      "seqno": 6960796
+    },
+    "service": {
+      "entropy": "4snsE3fAV/SfGYcxo9xvJPQ4",
+      "hostname": "kronoxis.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.4.1"
+  },
+  "ctime": 1568290203,
+  "expire_in": 504576000,
+  "prev": "707315145aadb67abfd9192844104cade2373fee7a8c6d11e418ab7a8300e5e1",
+  "seqno": 25,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgnqLcptvKYO/CBsDIO3FgqAfUyf+xF7PvHo+KAuBoIlgKp3BheWxvYWTESpcCGcQgcHMVFFqttnq/2RkoRBBMreI3P+56jG0R5BireoMA5eHEIGuVBtQZ1F2Ma60qvfb7Q8kpZwZVqmXZ85kcoB4s6IR0AgHCo3NpZ8RAfNtnz5ar/oG4m4jUpWNWN9iqjfeIWYLl09R4kDRqMwDfAFrlLRk+L9AaWEX5LMt6qHXdLGfMISmq89UvEuwrBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIO6z4y+IEOn2w8zMUkvzKpH7YxN0DmdHgiwefSmTtyBlo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/quintenwuyts
+
+==================================================================
