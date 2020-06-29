@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- ---------------------------------------------------------------------------------- -->
-<!-- ---------------------- © Kronoxis 2017, all rights reserved ---------------------- -->
+<!-- ---------------------- © Kronoxis 2020, all rights reserved ---------------------- -->
 <!-- -------------------All code below has been written by Kronoxis ------------------- -->
 <!-- ---------------------- Icons by Iconmonstr (iconmonstr.com) ---------------------- -->
 <!-- ----------------- Responsive CSS by Bootstrap (getbootstrap.com) ----------------- -->
@@ -262,7 +262,7 @@
                     <!-- Column 1: Text -->
                     <div class="col-md-9">
                         <p>
-                            My name is Quinten Wuyts and I'm a 21 year old Game Developer. Currently, I'm employed at <a href="https://aeroplane.ae/" target="_blank">Aeroplane</a> in Mechelen (Belgium).
+                            My name is Quinten Wuyts and I'm a <div id="age" style="display: inline;">22</div> year old Game Developer. Currently, I'm employed at <a href="https://aeroplane.ae/" target="_blank">Aeroplane</a> in Mechelen (Belgium).
                         </p>
                         <p>
                             As a versatile Game Developer, I try to achieve the best possible results through deep research and experimenting. Although programming is where my heart lies, I'm open-minded and have developed interest in other parts of the game development pipeline, such as 3D asset creation, particles and level design.
@@ -365,7 +365,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="left" id="copyright">© Kronoxis 2017</h2>
+                    <h2 class="left" id="copyright">© Kronoxis 2020</h2>
                 </div>
             </div>
         </div>
@@ -541,12 +541,18 @@
             });
 
             // ***
-            // Set Year
+            // Auto-update date-related content
             // ***
-            var year = new Date().getFullYear();
-            var lastUpdateYear = 2017;
-            if (year >= lastUpdateYear)
-                document.getElementById("copyright").innerHTML = "© Kronoxis " + year;
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var day = today.getDate();
+            document.getElementById("copyright").innerHTML = "© Kronoxis " + year;
+            
+            var age = year - 1997;
+            if (month < 10) --age;
+            else if (month == 10 && day < 21) --age;
+            document.getElementById("age").innerHTML = age;
 
             // ***
             // Remove # from url
