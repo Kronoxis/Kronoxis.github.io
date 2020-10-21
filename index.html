@@ -558,8 +558,8 @@
             document.getElementById("copyright").innerHTML = "© Kronoxis " + year;
             
             var age = year - 1997;
-            if (month < 10) --age;
-            else if (month == 10 && day < 21) --age;
+            if (month < 9) --age;
+            else if (month == 9 && day < 21) --age;
             document.getElementById("age").innerHTML = age;
 
             // ***
